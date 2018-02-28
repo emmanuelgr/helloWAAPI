@@ -3,24 +3,21 @@ import Pool from "./Pool";
 import data from "./data";
 import * as esz from './Ease';
 import Presentation from './Presentation';
-
-let origin;
+import Model from './Model';
 
 (function init() {
-  origin = document.getElementById('origin');
+  Model.origin = document.getElementById('origin');
   popPool();
   popText();
   // spinWorld();
   Presentation();
 })();
 function popPool(){
-  const pool = new Pool(10);
-  for (let index = 0; index < 10; index++) {
-    const aDiv = [index];
-  }
+  Model.bgs = new Pool(3,'bg','#bgs','bg');
+  Model.fgs = new Pool(3,'fg','#fgs','fg');
 }
 function spinWorld() {
-  origin.animate([
+  Model.origin.animate([
     { transform: "rotate3d(0,1,0,-15deg)" },
     { transform: "rotate3d( 0,1,0, 15deg)" }
   ], {
@@ -41,7 +38,7 @@ function popText() {
     div.id = `word${index+1}`;
     div.classList.add("ddd");
     div.classList.add("label");
-    origin.appendChild(div);
+    Model.origin.appendChild(div);
     const disected = words[index].split("").forEach((element, index) => {
       let el = document.createElement("span");
       el.innerText = element;
@@ -49,4 +46,3 @@ function popText() {
     });
   });
 }
-

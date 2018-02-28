@@ -26,7 +26,7 @@ span {
 
 #container {
   position: relative;
-  background-color: #444;
+  background-color: rgb(228, 228, 228);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -67,17 +67,12 @@ span {
   position: relative;
   /*  */
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
+  align-items: center;
+  justify-content: center;
   /*  */
   /* padding: 1rem; */
 
-  max-width: 50vw;
-  text-align: center;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  border: 1px solid black;
-  transform-style: preserve-3d;
+  /* transform-style: preserve-3d; */
   
   /* background-color: rgba(15, 139, 71, 0.5); */
 }
@@ -108,7 +103,7 @@ span {
   height: 100px;
 }
 .label {
-  color: rgba(242, 229, 183, 1);
+  color: rgb(26, 21, 4);
   /* background-color: hsla(354, 91%, 4%, 0.5); */
   
   /* width: 220px; */
@@ -128,4 +123,15 @@ span {
 
 }
 
+.swimmer{
+  width: 141vmax;
+  height: 141vmax;
+  position: fixed;
+  border-radius: 100vmax;
+  /* transform: translate3d(0,0,0); */
+  left: 50%;
+  top: 50%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+}
 

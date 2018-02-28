@@ -1,11 +1,11 @@
-export default class Transform {
+export default class Properties {
   _s='';
   _r='';
   _t='';
   _o='';
   constructor() {}
   T(x: number = 0, y: number = 0, z: number = 0) {
-    this._t +=` translateX( ${x}vw ) translateY( ${y}vw ) translateZ( ${z}vw ) `;
+    this._t +=` translateX( ${x}vw ) translateY( ${y}vh ) translateZ( ${z}vw ) `;
     return this;
   }
   R(x: number = 0, y: number = 0, z: number = 0) {
@@ -13,12 +13,12 @@ export default class Transform {
         `rotateZ( ${z}deg ) rotateY( ${y}deg ) rotateX( ${x}deg ) `;
     return this;
   }
-  S(x: number = 0, y: number = 0, z: number = 0) {
+  S(x: number = 1, y: number = 1, z: number = 1) {
     this._s += `scaleX( ${x} ) scaleY( ${y} ) scaleZ( ${z} ) `;
     return this;
   }
   O(x: number = -50, y: number = -50) {
-    this._o += `translate3d( ${x}  ${y} , 0) `;
+    this._o += `translate3d( ${x}%,  ${y}% , 0) `;
     return this;
   }
   get() {

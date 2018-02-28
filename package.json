@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel --no-cache --open -p 8080 ./src/index.html",
+    "start": "parcel --no-hmr --open -p 8080 ./src/index.html",
     "build": "parcel build index.html -d prod/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

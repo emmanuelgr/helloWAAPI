@@ -1,27 +1,33 @@
 export default class Pool {
-  pool = [];
-  inUse = [];
+  idPrefix: '';
+  pool:HTMLDivElement[] = [];
+  inUse:HTMLDivElement[] = [];
+  parentSelector = 'body';
+  className = 'swimmer';
   size;
-  constructor(size) {
+  constructor(size,idPrefix,parentSelector, className) {
     this.size = size;
+    this.idPrefix = idPrefix;
+    this.parentSelector = parentSelector;
     for (let index = 0; index < size; index++) {this.create()}
   }
   create() {
     const deDiv = document.createElement("div");
-    deDiv.id = `swimmer${this.pool.length}`;
-    document.body.appendChild(deDiv);
+    deDiv.id = `${this.idPrefix}${this.pool.length+this.inUse.length}`;
+    deDiv.classList.add('swimmer');
+    deDiv.classList.add(this.className);
+    document.querySelector(this.parentSelector).appendChild(deDiv);
     this.pool.push(deDiv);
   }
-  get() {
+  checkOut():HTMLDivElement {
     if (this.pool.length > 0) {
-      const o = this.pool.shift;
-      this.inUse.push(o);
-      return o;
-    } else {
-      this.create()
+      this.create();
     }
+    let o:HTMLDivElement = this.pool.shift();
+    this.inUse.push(o);
+    return o;
   }
-  returnn(o) {
+  checkIn(o) {
     const index = this.inUse.indexOf(o);
     if (index > -1) {
       this.inUse.splice(index, 1);
