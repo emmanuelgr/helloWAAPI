@@ -1,0 +1,20 @@
+export default {
+    set1: { offset: 0.1 },
+    set15: { offset: 0.15 },
+    set2: { offset: 0.2 },
+    set25: { offset: 0.25 },
+    set3: { offset: 0.3 },
+    set35: { offset: 0.35 },
+    set4: { offset: 0.4 },
+    set45: { offset: 0.45 },
+    set5: { offset: 0.5 },
+    set55: { offset: 0.55 },
+    set6: { offset: 0.6 },
+    set65: { offset: 0.65 },
+    set7: { offset: 0.7 },
+    set75: { offset: 0.75 },
+    set8: { offset: 0.8 },
+    set85: { offset: 0.85 },
+    set9: { offset: 0.9 },
+    set95: { offset: 0.95 }
+  };
