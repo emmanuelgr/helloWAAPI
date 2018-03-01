@@ -23,11 +23,17 @@ export default class Motion {
     deltaTime: number,
     animationKeyFrame: AnimationKeyFrame,
   ) {
+    // if(deltaTime == 0 ){
+    //  const boundsPapa =  this.element.parentElement.getBoundingClientRect();
+    //  const bounds =  this.element.getBoundingClientRect();
+    //  const x = bounds.left - boundsPapa.left;
+    //  const y = bounds.top - boundsPapa.top;
+    // }
     this.animationKeyFrames.push(animationKeyFrame);
     this.deltaTime.push(deltaTime);
     this.interpolations.push(esz.s.STEPS6);
   }
-  setInter(
+  setEas(
     interpolation: string
   ) {
     const i = this.interpolations.length-1;
@@ -43,7 +49,7 @@ export default class Motion {
       v.easing = this.interpolations[index];
     });
     this.tim.duration = totalTime;
-    console.log(this.animationKeyFrames);
+    // console.log(this.animationKeyFrames);
     return new KeyframeEffect(this.element, this.animationKeyFrames, this.tim);
   }
 }

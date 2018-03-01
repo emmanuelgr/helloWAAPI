@@ -6,7 +6,7 @@ import Presentation from './Presentation';
 import Model from './Model';
 
 (function init() {
-  Model.origin = document.getElementById('origin');
+  Model.world = document.getElementById('world');
   popPool();
   popText();
   // spinWorld();
@@ -17,11 +17,11 @@ function popPool(){
   Model.fgs = new Pool(3,'fg','#fgs','fg');
 }
 function spinWorld() {
-  Model.origin.animate([
-    { transform: "rotate3d(0,1,0,-15deg)" },
-    { transform: "rotate3d( 0,1,0, 15deg)" }
+  Model.world.animate([
+    { transform: "rotate3d(0,1,0,-90deg)" },
+    { transform: "rotate3d( 0,1,0,90deg)" }
   ], {
-    duration: 3333,
+    duration: 2222,
     easing:esz.s.EASE_IN_OUT,
     iterations: Infinity,
     direction: "alternate",
@@ -38,7 +38,7 @@ function popText() {
     div.id = `word${index+1}`;
     div.classList.add("ddd");
     div.classList.add("label");
-    Model.origin.appendChild(div);
+    Model.world.appendChild(div);
     const disected = words[index].split("").forEach((element, index) => {
       let el = document.createElement("span");
       el.innerText = element;

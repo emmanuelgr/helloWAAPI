@@ -1,6 +1,6 @@
 
 export default {
-    origin:null,
+    world:null,
     bgs:null,
     fgs:null
 
