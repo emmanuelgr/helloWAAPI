@@ -1,6 +1,7 @@
 import * as esz from "./Ease";
 
 export default class Motion {
+  id: 'NonSet';
   element: HTMLElement;
   animationKeyFrames: AnimationKeyFrame[] = [];
   interpolations: string [] = [];
@@ -50,6 +51,7 @@ export default class Motion {
     });
     this.tim.duration = totalTime;
     // console.log(this.animationKeyFrames);
-    return new KeyframeEffect(this.element, this.animationKeyFrames, this.tim);
+    let kfx = new KeyframeEffect(this.element, this.animationKeyFrames, this.tim);
+    return kfx;
   }
 }

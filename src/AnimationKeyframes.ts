@@ -1,6 +1,6 @@
 import * as esz from "./Ease";
 import off from "./Offsets";
-import T from "./Transform";
+import T from "./Properties";
 
 const opa0 = {opacity:0};
 const opa1 = {opacity:1};

@@ -3,10 +3,10 @@ import data from './data';
 import * as esz from './Ease';
 import Model from './Model';
 import Motion from './Motion';
-import motions from './Motions';
 import off from './Offsets';
 import Pool from './Pool';
 import Props from './Properties';
+import Anims from './AnimationKeyframes'
 
 //
 
@@ -47,6 +47,17 @@ export default function() {
   cam2.addKey(1500, new Props().T(5, 0, 0).R(8, 5, -11).get());
   cam2.setEas(esz.s.EASE_IN);
   cam2.addKey(222, new Props().T(0, 0, 0).R(0, 0, 0).get());
+
+  const cam3 = new Motion(world, 0, 0, false);
+  cam3.addKey(0, new Props().T(0, 0, 0).R(0, 0, 0).get());
+  cam3.setEas(esz.s.EASE_IN3);
+  cam3.addKey(300, new Props().T(-10, 0, 10).R(0, -20, 0).get());
+  cam3.setEas(esz.s.EASE_IN_OUT);
+  cam3.addKey(666, new Props().T(-10, 0, -10).R(8, -360, 9).get());
+  cam3.setEas(esz.s.EASE_IN3);
+  cam3.addKey(999, new Props().T(10, 0, 10).R(0, 0, 0).get());
+  cam3.setEas(esz.s.EASE_IN3);
+  cam3.addKey(333, new Props().T(0, 0, 0).R(0, 360, 0).get());
 
   const hello = new Motion(document.querySelector('#hello'), 0);
   hello.addKey(0, new Props().O(0).R(0, 0, 0).T(0, 0, -99).F().get());
@@ -117,18 +128,47 @@ export default function() {
 
   const div2: HTMLDivElement = Model.bgs.checkOut();
   div2.style.background = Colors.yellow.W700;
-  const bg2 = new Motion(div2, 333);
+  const bg2 = new Motion(div2, 444);
   bg2.addKey(0, new Props().S(0, 0, 0).F().get());
-  bg2.setEas(esz.s.EASE_OUT4);
-  bg2.addKey(2222, new Props().S().F().get());
+  bg2.setEas(esz.s.EASE_OUT3);
+  bg2.addKey(1111, new Props().S().F().get());
 
   const div3: HTMLDivElement = Model.bgs.checkOut();
-  div3.style.background = Colors.yellow.W900;
-  const bg3 = new Motion(div3, 444);
-  bg3.addKey(0, new Props().S(0, 0, 0).F().get());
-  bg3.setEas(esz.s.EASE_OUT4);
-  bg3.addKey(2222, new Props().S().F().get());
+  // div3.style.background = Colors.yellow.W900;
+  // const bg3 = new Motion(div3, 666);
+  // bg3.addKey(0, new Props().S(0, 0, 0).F().get());
+  // bg3.setEas(esz.s.EASE_OUT3);
+  // bg3.addKey(1111, new Props().S().F().get());
 
+
+
+  const a = new Motion(document.querySelector('#a'), 0);
+  a.addKey(0, new Props().O(0).T(0, 110, 0).R().F().get());
+  a.setEas(esz.s.EASE_OUT4);
+  a.addKey(333, new Props().O().T(0, -20, -30).R(0,30,0).F().get());
+  a.setEas(esz.s.EASE_IN_OUT);
+  a.addKey(777, new Props().O().T(0, -30, 10).R(0,0,0).F().get());
+  a.setEas(esz.s.EASE_IN4);
+  a.addKey(999, new Props().O(0).T(0, 110, 0).R().F().get());
+
+  const soft = new Motion(document.querySelector('#software'), 111);
+  soft.addKey(0, new Props().O(0).T(0, 110, 0).R().F().get());
+  soft.setEas(esz.s.EASE_OUT4);
+  soft.addKey(333, new Props().O().T(0, 0, -20).R(0,-30,0).F().get());
+  soft.setEas(esz.s.EASE_IN_OUT);
+  soft.addKey(777, new Props().O().T(0, 0, 20).R(0,0,0).F().get());
+  soft.setEas(esz.s.EASE_IN4);
+  soft.addKey(666, new Props().O(0).T(0, 110, 0).R().F().get());
+
+
+  const dev = new Motion(document.querySelector('#dev'), 222);
+  dev.addKey(0, new Props().O(0).T(0, 110, 0).R().F().get());
+  dev.setEas(esz.s.EASE_OUT4);
+  dev.addKey(333, new Props().O().T(0, 20, -10).R(0,40,0).F().get());
+  dev.setEas(esz.s.EASE_IN_OUT);
+  dev.addKey(777, new Props().O().T(0, 20, 30).R(0,0,0).F().get());
+  dev.setEas(esz.s.EASE_IN4);
+  dev.addKey(333, new Props().O(0).T(0, 110, 0).R().F().get());
 
   let player = new Animation(
       new SequenceEffect([
@@ -140,20 +180,41 @@ export default function() {
         new GroupEffect([
           cam2.get(),
           iam.get(),
-           eme.get(),
-            emeSpan
+          eme.get(),
+          emeSpan
         ]),
-        // new GroupEffect([
-        //   bg1.get(),
-        //   bg2.get(),
-        //   bg3.get(),
-        // ]),
+        new GroupEffect([
+          bg1.get(),
+          bg2.get(),
+          // bg3.get(),
+        ]),
+        new GroupEffect([
+          cam3.get(),
+          a.get(),
+          soft.get(),
+          dev.get()
+        ])
       ]),
       // emeSpan,
       document.timeline);
+    const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   player.onfinish = () => player.play();
-  player.play()
+  player.play();
 
+  // player.ready.then( ()=>requestAnimationFrame(onFrame));
+  // function onFrame(timestamp) {
+    // console.log( timestamp );
+    // console.log( '>', player.timeline.getAnimations()[0].);
+    // const remainingAnimations = plaeryerTotalAnimations - plaeryerTotalAnimations;
+    // switch( remainingAnimations )
+    // console.log( remainingAnimations);
+    // requestAnimationFrame(onFrame);
+  // }
+  
+  // const p2 = new Animation(bg3.get(),document.timeline);
+  // p2.onfinish =  ()=>p2.reverse();
+  // document.timeline.getAnimations()[0].
+  // p2.play();
   // const thisIs = new Motion(word3);
   // thisIs.addKey(0,     {opacity: "0",...new
   // Transf().S(0.5,0.5,0.5).R(0,0,0).T(-100,100,-100).get()});
