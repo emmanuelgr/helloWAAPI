@@ -5,19 +5,21 @@ import * as esz from './Ease';
 import Presentation from './Presentation';
 import Model from './Model';
 
-(function init() {
-  Model.world = document.getElementById('world');
+const m = new Model().get()
+
+function init() {
+  m.world = document.getElementById('world');
   popPool();
   popText();
   // spinWorld();
   Presentation();
-})();
+}
 function popPool(){
-  Model.bgs = new Pool(3,'bg','#bgs','bg');
-  Model.fgs = new Pool(3,'fg','#fgs','fg');
+  m.bgs = new Pool(3,'bg','#bgs','bg');
+  m.fgs = new Pool(3,'fg','#fgs','fg');
 }
 function spinWorld() {
-  Model.world.animate([
+  m.world.animate([
     { transform: "rotate3d(0,1,0,-90deg)" },
     { transform: "rotate3d( 0,1,0,90deg)" }
   ], {
@@ -38,7 +40,7 @@ function popText() {
     div.id = `word${index+1}`;
     div.classList.add("ddd");
     div.classList.add("label");
-    Model.world.appendChild(div);
+    m.world.appendChild(div);
     const disected = words[index].split("").forEach((element, index) => {
       let el = document.createElement("span");
       el.innerText = element;
@@ -46,3 +48,5 @@ function popText() {
     });
   });
 }
+
+init();

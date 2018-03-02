@@ -1,3 +1,7 @@
+@import '/Users/emmanuel/Projects/websiteAnimated/node_modules/lato/font/lato-black/lato-black.woff2';
+
+
+
 html {
   box-sizing: border-box;
 height: 100%;
@@ -13,7 +17,7 @@ body {
   position: relative;
   background-color: #333;
   height: 100%;
-  font-family: "Open Sans","Helvetica","Arial",sans-serif;
+  font-family: "Lato", "Open Sans","Helvetica","Arial",sans-serif;
 }
 
 #container {
@@ -130,9 +134,8 @@ body {
   transform-style: preserve-3d;/* << */
   color: rgb(26, 21, 4);
   font-size: 12.5vmin; /* 100vmin / max chars per word */
-  font-family: "Serif";
-  font-weight: 900;
-  /* transform: translate3d(-50%,-50%,-9vw); */
+  /* font-family: "Serif"; */
+  font-weight: 100;
 }
 
 #text span{
@@ -148,15 +151,51 @@ span#eme{
   position: absolute;  /* << */
   transform-origin: 0 0;  /* << */
   
-  
-  font-size:15vw;
-  font-family: "Serif";
-  font-weight: 800;
-  letter-spacing: -1.5vw;
-  text-transform: uppercase;
 }
 
 span#eme >span{
   display: block;
   position: relative;
+}
+
+
+#hello{
+  font-size:13vmin;
+  font-weight: 900;
+  letter-spacing: -1.0vmin;
+  text-transform: lowercase;
+}
+
+#there, #iam{
+  font-size:18vmin;
+  font-weight: 200;
+  letter-spacing: -1.5vmin;
+  /* text-transform: uppercase; */
+}
+
+#eme{
+  font-size:12.5vmin;
+  font-weight: 900;
+  letter-spacing: -0.5vmin;
+  text-transform: uppercase;
+}
+#a{
+  font-size: 5vmin;
+  font-weight: 600;
+  letter-spacing: 5vmin;
+  text-transform: lowercase;
+}
+
+#software{
+  font-size:10vmin;
+  font-weight: 100;
+  letter-spacing: 1.5vmin;
+  text-transform: uppercase;
+}
+
+#dev{
+  font-size: 6vmin;
+  font-weight: 800;
+  letter-spacing: 3vmin;
+  text-transform: uppercase;
 }

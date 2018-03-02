@@ -17,6 +17,7 @@
     "typescript": "^2.7.2"
   },
   "dependencies": {
+    "lato": "git+https://github.com/mrkelly/lato.git",
     "web-animations-js": "^2.3.1"
   }
 }
