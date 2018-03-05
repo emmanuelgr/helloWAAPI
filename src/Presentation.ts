@@ -11,10 +11,10 @@ import CameraMotions from "./CameraMotions";
 import HelloThere from './animations/HelloThere';
 import Iam from './animations/Iam';
 import AsoftwareDev from './animations/AsoftwareDev';
+import AGeekByNature from './animations/AGeekByNature';
 //
 
 export default function() {
-  const m = new Model().get();
   const world: HTMLElement = document.querySelector('#world');
   // const dddWithChildren:HTMLElement =
   // document.querySelector("#dddWithChildren"); const dddNoChild:HTMLElement =
@@ -33,62 +33,52 @@ export default function() {
   //   {transform:' translateZ(0) rotateY(1360deg) '},
   // ], {duration:3333,iterations:Infinity,direction:'alternate'})
 
+// let el:HTMLElement =  document.querySelector("#geek");
+// console.log(el);
+// let g = new GroupEffect(
+//   [
+//     new KeyframeEffect( el, [{transform:'translateY(-5vh)'},{transform:'translateY(15vh)'},{transform:'translateY(-5vh)'}],3333),
+//     new KeyframeEffect( el, [{transform:'rotateY(-45deg)'},{transform:'rotateY(45deg)'}],3333)
+//   ]
+// );
+//   let player = new Animation( g, document.timeline);
+//       player.onfinish = () => {
+//         console.log('a');  
+//         player.play();
+//       }
+//       player.play();
 
-  const div1: HTMLDivElement = m.bgs.checkOut();
-  div1.style.background = Colors.yellow.W600;
-  const bg1 = new Motion(
-      div1,
-      0,
-  );
-  bg1.addKey(0, new Props().S(0.1, 0.1, 0).F().get());
-  bg1.setEas(esz.s.EASE_OUT4);
-  bg1.addKey(1111, new Props().S().F().get());
+let endOfPrevFx=0;
+const hellothere = HelloThere(333);
+endOfPrevFx += hellothere.activeDuration-850;
+const iam = Iam(endOfPrevFx);
+endOfPrevFx += iam.activeDuration-1600
+const aSoftDev = AsoftwareDev(endOfPrevFx);
+endOfPrevFx += aSoftDev.activeDuration-4500
+const aGeek = AGeekByNature(endOfPrevFx);
+// const aGeek = AGeekByNature(0);
+const text = new GroupEffect([
+  hellothere,
+  iam,
+  aSoftDev,
+  aGeek,
+]);
 
-  const div2: HTMLDivElement = m.bgs.checkOut();
-  div2.style.background = Colors.yellow.W700;
-  const bg2 = new Motion(div2, 444);
-  bg2.addKey(0, new Props().S(0, 0, 0).F().get());
-  bg2.setEas(esz.s.EASE_OUT3);
-  bg2.addKey(1111, new Props().S().F().get());
+const cams = new SequenceEffect([
+  CameraMotions().cam1.get(),
+  CameraMotions().cam2.get(),
+  CameraMotions().cam3.get(),
+]);
 
-  // const div3: HTMLDivElement = m.bgs.checkOut();
-  // div3.style.background = Colors.yellow.W900;
-  // const bg3 = new Motion(div3, 666);
-  // bg3.addKey(0, new Props().S(0, 0, 0).F().get());
-  // bg3.setEas(esz.s.EASE_OUT3);
-  // bg3.addKey(1111, new Props().S().F().get());
-
-
-
-  const hellothere = HelloThere();
-  const iam = Iam();
-  const aSoftDev = AsoftwareDev();
-  //
-  
-  hellothere.onfinish = () => iam.play();
-  iam.onfinish = () => aSoftDev.play();
-  aSoftDev.onfinish = () => hellothere.play();
-  // aSoftDev.onfinish = () => aSoftDev.play();
-  hellothere.play();
-  
-    // const dummyM = new Motion(m.world, 10,0, false);
-    // dummyM.addKey(0, new Props().T(0, 0, 0).R(0, 0, 0).get());
-    // dummyM.addKey(1, new Props().T(0, 0, 0).R(0, 90,0).get());
-
-  // let player = new Animation(
-  //   new SequenceEffect([
-  //     new GroupEffect([
-  //       bg1.get(),
-  //       bg2.get(),
-  //       CameraMotions().cam1.get(),
-  //       // CameraMotions().cam2.get(),
-  //       // CameraMotions().cam3.get(),
-  //         // bg3.get(),
-  //       ])
-  //     ]),
-      // document.timeline);
-      // player.onfinish = () => hellothere.play();
-      // player.play();
+let player = new Animation(
+  new GroupEffect([
+    text,
+    // cams,
+  ]),
+  document.timeline
+);
+player.onfinish = () => player.play();
+player.play();
       
     // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   // player.ready.then( ()=>requestAnimationFrame(onFrame));

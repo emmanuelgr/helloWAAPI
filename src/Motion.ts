@@ -20,6 +20,12 @@ export default class Motion {
       fill: fillBoth?"both":"none"
     };
   }
+  holdPrev(holdTime:number){
+    const i = this.interpolations.length-1;
+    this.animationKeyFrames.push({...this.animationKeyFrames[i]});
+    this.deltaTime.push(holdTime);
+    this.interpolations.push(esz.s.LINEAR);
+  }
   addKey(
     deltaTime: number,
     animationKeyFrame: AnimationKeyFrame,
@@ -35,7 +41,6 @@ export default class Motion {
     this.interpolations[i]= interpolation;
   }
   get(): KeyframeEffect {
-    const ak: AnimationKeyFrame[] = [];
     const totalTime = this.deltaTime.reduce((a, b) => a + b);
     let currentTime=0;
     this.animationKeyFrames.forEach((v, index,a) => {

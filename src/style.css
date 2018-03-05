@@ -1,7 +1,5 @@
-@import '/Users/emmanuel/Projects/websiteAnimated/node_modules/lato/font/lato-black/lato-black.woff2';
-
-
-
+/* @import '/Users/emmanuel/Projects/websiteAnimated/node_modules/lato/font/lato-black/lato-black.woff2'; */
+@import './fonts/lato.css';
 html {
   box-sizing: border-box;
 height: 100%;
@@ -22,26 +20,17 @@ body {
 
 #container {
   position: relative;
-  background-color: rgb(228, 228, 228);
+  /* background-color: rgb(228, 228, 228); */
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  pointer-events: none;
 }
 
 #origin {
   position: absolute; /* << */
-  left: 50%; /* << */
-  top:  50%; /* << */
+  transform: translate3d(50vw,50vh,0);/* << */
 }
-/* #origin::after{
-  content:" ";
-  background-color: blue;
-  width:5px;
-  height:5px;
-  position: absolute;
-  left: -2.5px;
-  top: -2.5px;
-} */
 #camera{
   transform-origin: 0 0; /* << */
   /* backface-visibility: hidden; */
@@ -57,11 +46,11 @@ body {
 #world{
   transform-style: preserve-3d;
 }
+
 .ddd{
   position: absolute;
   transform-origin: 0 0;
   transform-style: preserve-3d;
-  /* background-color: saddlebrown; */
 }
 .ddd span{
   display: inline-block;
@@ -95,12 +84,9 @@ body {
   background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
   background-position: -0.5px -0.5px, -0.5px -0.5px, -1px -1px, -1px -1px;
 }
-
-
 #spacers{
   transform-style: preserve-3d;  /* << */
 }
-
 .spacers{
   width: 10px;
   height: 10px;
@@ -108,25 +94,26 @@ body {
   background-color: rgb(138, 8, 245);
 }
 
-.swimmer{
+#bgs{
   position: absolute;
-  transform: translate3d(-50%,-50%,0);
-  left: 50%;
-  top: 50%;
+  transform: translate3d(50vw,50vh, 0);
+}
+/* My Shapes */
+.rect{
+  position: absolute;
+  width:100vw;
+  height: 100vh;
+}
 
-  width:100%;
-  height: 100%;
-  /* transform: scale(0.5); */
+.circle{
+  position: absolute;
+  /* width: 141vmax; */
+  /* height: 141vmax; */
+  /* border-radius: 70.5vmax; */
+  width: 14.1vmax;
+  height: 14.1vmax;
+  border-radius: 14.1vmax;
   transform-origin: 0 0;
-}
-
-.circDiv{
-  width: 141vmax;
-  height: 141vmax;
-  border-radius: 100vmax;
-}
-.fg{
-
 }
 
 #text{
@@ -145,8 +132,6 @@ body {
 }
 
 span#eme{
-  /* background-color: royalblue; */
-  color:#fdd935;
   display: flex;  /* << */
   position: absolute;  /* << */
   transform-origin: 0 0;  /* << */
@@ -160,20 +145,32 @@ span#eme >span{
 
 
 #hello{
-  font-size:13vmin;
+  color: #212121;
+  font-size:18vmin;
   font-weight: 900;
   letter-spacing: -1.0vmin;
   text-transform: lowercase;
 }
 
-#there, #iam{
-  font-size:18vmin;
+#there{
+  color: #212121;
+  font-size:8vmin;
   font-weight: 200;
-  letter-spacing: -1.5vmin;
+  /* letter-spacing: -1.5vmin; */
   /* text-transform: uppercase; */
 }
 
+ #iam{
+  background-color:#fdd935;
+  font-size:4vmin;
+  font-weight: 600;
+  letter-spacing: -0.4vmin;
+  text-transform: lowercase;
+  padding: 2vmin;
+}
+
 #eme{
+  color:#fdd935;
   font-size:12.5vmin;
   font-weight: 900;
   letter-spacing: -0.5vmin;
@@ -197,5 +194,37 @@ span#eme >span{
   font-size: 6vmin;
   font-weight: 800;
   letter-spacing: 3vmin;
+  text-transform: uppercase;
+}
+
+#ageek{
+  font-size:22vmin;
+  font-weight: 100;
+  color:#fdd935;
+  z-index: 1;
+}
+
+#by{
+  font-size:8vmin;
+  font-weight: 400;
+  color:#fdd935;
+}
+#geek{
+
+  color:#212121;
+  font-size:110vmin;
+  font-weight: 900;
+  letter-spacing: -2.5vmin;
+  text-transform: capitalize;
+}
+
+#geekBg{
+  background-color: #212121;
+}
+#nature{
+  color:#fdd935;
+  font-size:7.5vmin;
+  font-weight: 300;
+  letter-spacing: 5.5vmin;
   text-transform: uppercase;
 }

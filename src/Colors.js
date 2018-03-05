@@ -1,6 +1,5 @@
 export default {
   red: {
-    W001: '#f44336',
     W050: '#ffebee',
     W100: '#ffcdd2',
     W200: '#ef9a9a',
@@ -15,10 +14,8 @@ export default {
     A200: '#ff5252',
     A400: '#ff1744',
     A700: '#d50000',
-    hex: '#f44336'
   },
   pink: {
-    W001: '#e91e63',
     W050: '#fce4ec',
     W100: '#f8bbd0',
     W200: '#f48fb1',
@@ -33,10 +30,8 @@ export default {
     A200: '#ff4081',
     A400: '#f50057',
     A700: '#c51162',
-    hex: '#e91e63'
   },
   purple: {
-    W001: '#9c27b0',
     W050: '#f3e5f5',
     W100: '#e1bee7',
     W200: '#ce93d8',
@@ -51,10 +46,8 @@ export default {
     A200: '#e040fb',
     A400: '#d500f9',
     A700: '#aa00ff',
-    hex: '#9c27b0'
   },
   deepPurple: {
-    W001: '#673ab7',
     W050: '#ede7f6',
     W100: '#d1c4e9',
     W200: '#b39ddb',
@@ -69,10 +62,8 @@ export default {
     A200: '#7c4dff',
     A400: '#651fff',
     A700: '#6200ea',
-    hex: '#673ab7'
   },
   indigo: {
-    W001: '#3f51b5',
     W050: '#e8eaf6',
     W100: '#c5cae9',
     W200: '#9fa8da',
@@ -87,10 +78,8 @@ export default {
     A200: '#536dfe',
     A400: '#3d5afe',
     A700: '#304ffe',
-    hex: '#3f51b5'
   },
   blue: {
-    W001: '#2196f3',
     W050: '#e3f2fd',
     W100: '#bbdefb',
     W200: '#90caf9',
@@ -108,7 +97,6 @@ export default {
     hex: '#2196f3'
   },
   lightBlue: {
-    W001: '#03a9f4',
     W050: '#e1f5fe',
     W100: '#b3e5fc',
     W200: '#81d4fa',
@@ -123,10 +111,8 @@ export default {
     A200: '#40c4ff',
     A400: '#00b0ff',
     A700: '#0091ea',
-    hex: '#03a9f4'
   },
   cyan: {
-    W001: '#00bcd4',
     W050: '#e0f7fa',
     W100: '#b2ebf2',
     W200: '#80deea',
@@ -141,10 +127,9 @@ export default {
     A200: '#18ffff',
     A400: '#00e5ff',
     A700: '#00b8d4',
-    hex: '#00bcd4'
+
   },
   teal: {
-    W001: '#009688',
     W050: '#e0f2f1',
     W100: '#b2dfdb',
     W200: '#80cbc4',
@@ -159,10 +144,9 @@ export default {
     A200: '#64ffda',
     A400: '#1de9b6',
     A700: '#00bfa5',
-    hex: '#009688'
+
   },
   green: {
-    W001: '#4caf50',
     W050: '#e8f5e9',
     W100: '#c8e6c9',
     W200: '#a5d6a7',
@@ -177,10 +161,9 @@ export default {
     A200: '#69f0ae',
     A400: '#00e676',
     A700: '#00c853',
-    hex: '#4caf50'
+
   },
   lightGreen: {
-    W001: '#8bc34a',
     W050: '#f1f8e9',
     W100: '#dcedc8',
     W200: '#c5e1a5',
@@ -195,10 +178,9 @@ export default {
     A200: '#b2ff59',
     A400: '#76ff03',
     A700: '#64dd17',
-    hex: '#8bc34a'
+
   },
   lime: {
-    W001: '#cddc39',
     W050: '#f9fbe7',
     W100: '#f0f4c3',
     W200: '#e6ee9c',
@@ -213,10 +195,9 @@ export default {
     A200: '#eeff41',
     A400: '#c6ff00',
     A700: '#aeea00',
-    hex: '#cddc39'
+
   },
   yellow: {
-    W001: '#ffeb3b',
     W050: '#fffde7',
     W100: '#fff9c4',
     W200: '#fff59d',
@@ -231,10 +212,9 @@ export default {
     A200: '#ffff00',
     A400: '#ffea00',
     A700: '#ffd600',
-    hex: '#ffeb3b'
+
   },
   amber: {
-    W001: '#ffc107',
     W050: '#fff8e1',
     W100: '#ffecb3',
     W200: '#ffe082',
@@ -249,10 +229,9 @@ export default {
     A200: '#ffd740',
     A400: '#ffc400',
     A700: '#ffab00',
-    hex: '#ffc107'
+
   },
   orange: {
-    W001: '#ff9800',
     W050: '#fff3e0',
     W100: '#ffe0b2',
     W200: '#ffcc80',
@@ -267,10 +246,9 @@ export default {
     A200: '#ffab40',
     A400: '#ff9100',
     A700: '#ff6d00',
-    hex: '#ff9800'
+
   },
   deepOrange: {
-    W001: '#ff5722',
     W050: '#fbe9e7',
     W100: '#ffccbc',
     W200: '#ffab91',
@@ -285,10 +263,9 @@ export default {
     A200: '#ff6e40',
     A400: '#ff3d00',
     A700: '#dd2c00',
-    hex: '#ff5722'
+
   },
   brown: {
-    W001: '#795548',
     W050: '#efebe9',
     W100: '#d7ccc8',
     W200: '#bcaaa4',
@@ -299,10 +276,9 @@ export default {
     W700: '#5d4037',
     W800: '#4e342e',
     W900: '#3e2723',
-    hex: '#795548'
+
   },
   grey: {
-    W001: '#9e9e9e',
     W050: '#fafafa',
     W100: '#f5f5f5',
     W200: '#eeeeee',
@@ -313,10 +289,9 @@ export default {
     W700: '#616161',
     W800: '#424242',
     W900: '#212121',
-    hex: '#9e9e9e'
+
   },
   blueGrey: {
-    W001: '#607d8b',
     W050: '#eceff1',
     W100: '#cfd8dc',
     W200: '#b0bec5',
@@ -327,8 +302,7 @@ export default {
     W700: '#455a64',
     W800: '#37474f',
     W900: '#263238',
-    hex: '#607d8b'
   },
-  black: {W001: '#000000', hex: '#000000'},
-  white: {W001: '#ffffff', hex: '#ffffff'}
+  black: {W001: '#000000'},
+  white: {W001: '#ffffff'}
 }

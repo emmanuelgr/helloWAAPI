@@ -26,13 +26,13 @@ export default function(){
     cam2.addKey(222, new Props().T(0, 0, 0).R(0, 0, 0).get());
 
     const cam3 = new Motion(m.world, 0, 0, false);
-    cam3.addKey(0, new Props().T(0, 0, 0).R(      0, 0, 0  ).get());
+    cam3.addKey(0, new Props().T(0, 0, -10).R(      -30, 0, 0  ).get());
     cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(300, new Props().T(0, 0, 0).R(   0, 0, 0   ).get());
+    cam3.addKey(666, new Props().T(0, 0, 0).R(   5, 0, 0   ).get());
     cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(3333, new Props().T(0, 0, 0).R(  0, 0, 0     ).get());
+    cam3.addKey(666, new Props().T(0, 0, 0).R(  -5, 0, 0     ).get());
     cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(333, new Props().T(0, 0, 0).R(0, 0, 0).get());
+    cam3.addKey(999, new Props().T(0, 0, -10).R(    0, 0, 0).get());
 
 
     return {cam1,cam2,cam3};

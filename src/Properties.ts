@@ -10,6 +10,7 @@ export default class Properties {
   _translationZ = '';
   _offset = '';
   _opacity = -1;
+  _visable = -1;
 
   /**Translation on X as a string need to define unit */
   TX(x: string ='0') {
@@ -62,7 +63,8 @@ export default class Properties {
    */
   R(x: number = 0, y: number = 0, z: number = 0) {
     this._rotation =
-        `rotateZ( ${z}deg ) rotateY( ${y}deg ) rotateX( ${x}deg ) `;
+        // `rotateZ( ${z}deg ) rotateY( ${y}deg ) rotateX( ${x}deg ) `;
+        `rotateX( ${x}deg ) rotateY( ${y}deg ) rotateZ( ${z}deg ) `;
     return this;
   }
   /**
@@ -95,13 +97,24 @@ export default class Properties {
     this._opacity = opacity;
     return this;
   }
+  /**Switch visability
+   * 0 is hidden
+   * 1 is vissible default
+   */
+  VIS(visability:1){
+    this._visable = visability;
+    return this;
+    
+  }
   /**
    * Returns an object with ppopulated
    * fields
    */
   get() {
     let s = '';
-    let o = {};
+    let o = {
+      // transform:'translate3d(50vw,50vh,0) '
+    };
     if (this._translationX) {
       s += this._translationX;
     }
@@ -137,6 +150,9 @@ export default class Properties {
     }
     if (this._opacity >= 0) {
       o['opacity'] = this._opacity;
+    }
+    if (this._visable >= 0) {
+      o['hidden'] = true;
     }
     // console.log(o);
     return o;

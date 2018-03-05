@@ -1,7 +1,5 @@
 const data = {
-  world: null,
-  bgs: null,
-  fgs: null
+  world: null
 }
 
 export default class Model {

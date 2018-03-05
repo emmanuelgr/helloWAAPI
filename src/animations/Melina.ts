@@ -5,16 +5,19 @@ import Colors from "../Colors";
 
 export default function(delay:number=0){
 
-const hello = new Motion(document.querySelector('#hello'), delay);
-hello.addKey(0, new Props().O(0).R(0, -80, 0).T(0, 0, -99).F().get());
-hello.setEas(esz.s.EASE_IN_OUT);
-hello.addKey(500, new Props().O().R(0, 30, 10).T(0, -10, 0).F().get());
-hello.setEas(esz.s.EASE_OUT);
-hello.addKey(100, new Props().O().R(0, -10, 0).T(0, -20, 20).F().get());
-hello.setEas(esz.s.EASE_IN_OUT);
-hello.addKey(800, new Props().O().R(0, 60, -10).T(0, -10, 0).F().get());
-hello.setEas(esz.s.EASE_IN_OUT);
-hello.addKey(400, new Props().O(0).R(0, 80, 30).T(0, 0, -99).F().get());
+const meli = document.createElement('div');
+meli.textContent = 'Melina is';
+document.querySelector('#world').appendChild(meli);
+const meliMotion = new Motion(meli, delay);
+meliMotion.addKey(0, new Props().O(0).R(0, -80, 0).T(0, 0, -99).F().get());
+meliMotion.setEas(esz.s.EASE_IN_OUT);
+meliMotion.addKey(500, new Props().O().R(0, 30, 10).T(0, -10, 0).F().get());
+meliMotion.setEas(esz.s.EASE_OUT);
+meliMotion.addKey(100, new Props().O().R(0, -10, 0).T(0, -20, 20).F().get());
+meliMotion.setEas(esz.s.EASE_IN_OUT);
+meliMotion.addKey(800, new Props().O().R(0, 60, -10).T(0, -10, 0).F().get());
+meliMotion.setEas(esz.s.EASE_IN_OUT);
+meliMotion.addKey(400, new Props().O(0).R(0, 80, 30).T(0, 0, -99).F().get());
 
 const there = new Motion(document.querySelector('#there'), delay+350);
 there.addKey(0, new Props().O(0).T(0, 0, -99).R().F().get());
@@ -46,7 +49,7 @@ papa.setEas(esz.s.EASE_IN);
 papa.addKey(222, new Props().T(0, 0, 0).R(0, 0, 0).get());
 
 const g = new GroupEffect([
-  hello.get(),
+  meliMotion.get(),
   there.get(),
   papa.get(),
   divMotion.get(),

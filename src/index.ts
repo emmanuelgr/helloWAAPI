@@ -8,15 +8,13 @@ import Model from './Model';
 const m = new Model().get()
 
 function init() {
+  // scroll 
+  window.scrollTo(0,1);
+  //
   m.world = document.getElementById('world');
-  popPool();
   popText();
   // spinWorld();
   Presentation();
-}
-function popPool(){
-  m.bgs = new Pool(3,'bg','#bgs','bg');
-  m.fgs = new Pool(3,'fg','#fgs','fg');
 }
 function spinWorld() {
   m.world.animate([
