@@ -11,9 +11,10 @@ const m = new Model().get();
 
 const iam = new Motion(document.querySelector('#iam'), delay);
 iam.addKey(0, new Props().O(0).T(0, 0, 0).F().get());
-iam.setEas(esz.s.EASE_IN_OUT);
+iam.setEas(esz.s.EASE_OUT4);
 iam.addKey(500, new Props().O().T(-20, -20, 0).F().get());
 iam.holdPrev(777);
+iam.setEas(esz.s.EASE_IN4);
 iam.addKey(400, new Props().O(0).T(0, 0, 0).F().get());
 
 const eme = new Motion(document.querySelector('#eme'), delay+555);
@@ -29,7 +30,7 @@ const emmanuelMotion = new GroupEffect(
     Array.from(document.querySelectorAll('#eme > span'))
         .map((el: HTMLElement, index) => {
           //
-          const emmanuelAnim = new Motion(el as HTMLElement,delay +  index * 70 + 555);
+          const emmanuelAnim = new Motion(el as HTMLElement,delay +  index * 70 + 666);
           // m.addKey(0,{transform:'translate3d(30vw,0,0) rotateY(-90deg)'});
           emmanuelAnim.addKey(0, {transform: `rotateY(-180deg)`});
           emmanuelAnim.setEas(esz.s.LINEAR);

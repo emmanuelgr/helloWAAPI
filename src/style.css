@@ -163,15 +163,14 @@ span#eme >span{
  #iam{
   background-color:#fdd935;
   font-size:4vmin;
-  font-weight: 600;
-  letter-spacing: -0.4vmin;
-  text-transform: lowercase;
+  font-weight: 900;
+  letter-spacing: 0.4vmin;
   padding: 2vmin;
 }
 
 #eme{
   color:#fdd935;
-  font-size:12.5vmin;
+  font-size:17vmin;
   font-weight: 900;
   letter-spacing: -0.5vmin;
   text-transform: uppercase;
@@ -198,8 +197,8 @@ span#eme >span{
 }
 
 #ageek{
-  font-size:22vmin;
-  font-weight: 100;
+  font-size:12vmin;
+  font-weight: 300;
   color:#fdd935;
   z-index: 1;
 }
@@ -227,4 +226,14 @@ span#eme >span{
   font-weight: 300;
   letter-spacing: 5.5vmin;
   text-transform: uppercase;
+}
+
+#spinners{
+  /* transform: scale(0.1); */
+}
+.spinner{
+  position: absolute;
+  transform-origin: 0 0;
+  /* opacity: 0.4; */
+  /* border: #212121 1px solid */
 }

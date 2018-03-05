@@ -3,24 +3,24 @@ export default class Pool {
   pool:HTMLDivElement[] = [];
   inUse:HTMLDivElement[] = [];
   parentSelector = 'body';
-  className = 'swimmer';
+  className = '';
   size;
   constructor(size,idPrefix,parentSelector, className) {
     this.size = size;
     this.idPrefix = idPrefix;
     this.parentSelector = parentSelector;
+    this.className = className;
     for (let index = 0; index < size; index++) {this.create()}
   }
   create() {
     const deDiv = document.createElement("div");
     deDiv.id = `${this.idPrefix}${this.pool.length+this.inUse.length}`;
-    deDiv.classList.add('swimmer');
     deDiv.classList.add(this.className);
     document.querySelector(this.parentSelector).appendChild(deDiv);
     this.pool.push(deDiv);
   }
   checkOut():HTMLDivElement {
-    if (this.pool.length > 0) {
+    if (this.pool.length == 0) {
       this.create();
     }
     let o:HTMLDivElement = this.pool.shift();

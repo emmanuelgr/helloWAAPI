@@ -12,6 +12,7 @@ import HelloThere from './animations/HelloThere';
 import Iam from './animations/Iam';
 import AsoftwareDev from './animations/AsoftwareDev';
 import AGeekByNature from './animations/AGeekByNature';
+import ByHeart from './animations/ByHeart';
 //
 
 export default function() {
@@ -48,20 +49,26 @@ export default function() {
 //       }
 //       player.play();
 
-let endOfPrevFx=0;
+let timeToEnter=0;
 const hellothere = HelloThere(333);
-endOfPrevFx += hellothere.activeDuration-850;
-const iam = Iam(endOfPrevFx);
-endOfPrevFx += iam.activeDuration-1600
-const aSoftDev = AsoftwareDev(endOfPrevFx);
-endOfPrevFx += aSoftDev.activeDuration-4500
-const aGeek = AGeekByNature(endOfPrevFx);
+timeToEnter += hellothere.activeDuration-850;
+const iam = Iam(timeToEnter);
+timeToEnter += iam.activeDuration-1600
+const aSoftDev = AsoftwareDev(timeToEnter);
+timeToEnter += aSoftDev.activeDuration-4500
+const aGeek = AGeekByNature(timeToEnter);
+timeToEnter += aGeek.activeDuration-4500
+// const iam = Iam(0);
 // const aGeek = AGeekByNature(0);
+// const aGeek = AGeekByNature(0);
+const byHeart = ByHeart(0);
+//
 const text = new GroupEffect([
-  hellothere,
-  iam,
-  aSoftDev,
-  aGeek,
+  byHeart,
+  // hellothere,
+  // iam,
+  // aSoftDev,
+  // aGeek,
 ]);
 
 const cams = new SequenceEffect([
@@ -78,7 +85,12 @@ let player = new Animation(
   document.timeline
 );
 player.onfinish = () => player.play();
+// player.pause();
 player.play();
+
+
+
+
       
     // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   // player.ready.then( ()=>requestAnimationFrame(onFrame));
