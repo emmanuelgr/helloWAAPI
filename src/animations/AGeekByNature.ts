@@ -12,14 +12,14 @@ deDiv.id = 'geekBg';
 deDiv.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv);
 const divMotion = new Motion(deDiv, delay + 0);
-divMotion.addKey(0, new Props().O(0).TY('100vh').F().get());
+divMotion.addKey(0, new Props().O(0).TY('100vh').S(100,100,1).F().get());
 divMotion.setEas(esz.s.EASE_OUT3);
-divMotion.addKey(1111, new Props().O().TY().F().get());
+divMotion.addKey(1111, new Props().O().TY().S(100,100,1).F().get());
 divMotion.setEas(esz.s.EASE_OUT3);
-divMotion.addKey(1111, new Props().O().TY('-100vh').F().get());
+divMotion.addKey(1111, new Props().O().TY('-100vh').S(100,100,1).F().get());
 divMotion.holdPrev(700);
 divMotion.setEas(esz.s.EASE_OUT3);
-divMotion.addKey(1111, new Props().O(1).TY().F().get());
+divMotion.addKey(1111, new Props().O(1).TY().S(100,100,1).F().get());
 
 const a = new Motion(document.querySelector('#ageek'), delay+666);
 a.addKey(0, new Props().O(0).T(  0, 0, 0).F().get());

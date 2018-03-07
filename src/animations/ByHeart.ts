@@ -7,7 +7,7 @@ import Spinner from "../Spinner";
 
 export default function(delay:number=0){
   const kfs = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 1; i++) {
     const mtn = new Motion(new Spinner(i, `spin${i}`, "#spinners", "spinner").get(), delay + 150*i);
     mtn.addKey(0, new Props()
         .S((i+1)*3,(i+1)*3,1)
@@ -64,12 +64,12 @@ deDiv.id = 'heartBg';
 deDiv.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv);
 const divMotion = new Motion(deDiv, delay + 2222);
-divMotion.addKey(0, new Props().O(0).F().get());
+divMotion.addKey(0, new Props().O(0).S(100,100,1).F().get());
 divMotion.setEas(esz.s.LINEAR);
-divMotion.addKey(999, new Props().O(1).F().get());
+divMotion.addKey(999, new Props().O(1).S(100,100,1).F().get());
 divMotion.holdPrev(2222);
 divMotion.setEas(esz.s.LINEAR);
-divMotion.addKey(444, new Props().O(0).F().get());
+divMotion.addKey(444, new Props().O(0).S(100,100,1).F().get());
 
 // const papa = new Motion(document.getElementById('seq4'), delay+5555);
 // papa.addKey(0, new Props().S(1  ,1, 1).get());

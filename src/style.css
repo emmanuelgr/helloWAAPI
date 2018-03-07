@@ -110,8 +110,10 @@ body {
 /* My Shapes */
 .rect{
   position: absolute;
-  width:100vw;
-  height: 100vh;
+  transform: scale(100);
+  width: 1vw;
+  height: 1vh;
+  transform-origin: 0 0;
 }
 
 .circle{
