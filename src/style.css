@@ -24,10 +24,19 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  pointer-events: none;
 }
-
+#timeline{
+  position: absolute;
+  transform-origin: 0 0;
+  height: 10px;
+  width: 100%;
+  background-color: #fdd935;
+  z-index: 9999;
+  visibility: hidden;
+}
 #origin {
+  pointer-events: none;
+  user-select: none;
   position: absolute; /* << */
   transform: translate3d(50vw,50vh,0);/* << */
 }
@@ -170,7 +179,7 @@ span#eme >span{
 
 #eme{
   color:#fdd935;
-  font-size:17vmin;
+  font-size:16vmin;
   font-weight: 900;
   letter-spacing: -0.5vmin;
   text-transform: uppercase;
@@ -197,8 +206,8 @@ span#eme >span{
 }
 
 #ageek{
-  font-size:12vmin;
-  font-weight: 300;
+  font-size:44vmin;
+  font-weight: 100;
   color:#fdd935;
   z-index: 1;
 }
@@ -228,12 +237,42 @@ span#eme >span{
   text-transform: uppercase;
 }
 
-#spinners{
-  /* transform: scale(0.1); */
+#origin *{
+  transform-origin: 0 0;
 }
 .spinner{
   position: absolute;
   transform-origin: 0 0;
-  /* opacity: 0.4; */
-  /* border: #212121 1px solid */
+  /* opacity: 0.9; */
+}
+
+
+#creative{
+  color:#fdd935;
+  font-size:10.5vmin;
+  font-weight: 300;
+  letter-spacing: 1.5vmin;
+  text-transform: uppercase;
+  position: absolute;
+  
+}
+#byheart{
+  color:#212121;
+  font-size:4.5vmin;
+  font-weight: 900;
+  position: absolute;
+  
+}
+#heart{
+  color: #212121;
+  font-size:5.5vmin;
+  font-weight: 900;
+  letter-spacing: 9.5vmin;
+  text-transform: uppercase;
+  position: absolute;
+  
+}
+
+#heartBg{
+  background-color: #424242;
 }

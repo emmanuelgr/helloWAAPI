@@ -9,7 +9,7 @@ export default function(delay:number=0){
 
 const m = new Model().get();
 
-const iam = new Motion(document.querySelector('#iam'), delay);
+const iam = new Motion(document.querySelector('#iam'), delay+333);
 iam.addKey(0, new Props().O(0).T(0, 0, 0).F().get());
 iam.setEas(esz.s.EASE_OUT4);
 iam.addKey(500, new Props().O().T(-20, -20, 0).F().get());

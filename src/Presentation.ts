@@ -49,26 +49,28 @@ export default function() {
 //       }
 //       player.play();
 
-let timeToEnter=0;
-const hellothere = HelloThere(333);
-timeToEnter += hellothere.activeDuration-850;
+let timeToEnter=333;
+const hellothere = HelloThere(timeToEnter);
+timeToEnter += hellothere.activeDuration-1900;
 const iam = Iam(timeToEnter);
 timeToEnter += iam.activeDuration-1600
 const aSoftDev = AsoftwareDev(timeToEnter);
-timeToEnter += aSoftDev.activeDuration-4500
+timeToEnter += aSoftDev.activeDuration-5500
 const aGeek = AGeekByNature(timeToEnter);
-timeToEnter += aGeek.activeDuration-4500
+timeToEnter += aGeek.activeDuration-6200
+const byHeart = ByHeart(timeToEnter);
+timeToEnter += byHeart.activeDuration-500
 // const iam = Iam(0);
 // const aGeek = AGeekByNature(0);
 // const aGeek = AGeekByNature(0);
-const byHeart = ByHeart(0);
+// const byHeart = ByHeart(0);
 //
 const text = new GroupEffect([
+  hellothere,
+  iam,
+  aSoftDev,
+  aGeek,
   byHeart,
-  // hellothere,
-  // iam,
-  // aSoftDev,
-  // aGeek,
 ]);
 
 const cams = new SequenceEffect([
@@ -77,22 +79,45 @@ const cams = new SequenceEffect([
   CameraMotions().cam3.get(),
 ]);
 
-let player = new Animation(
-  new GroupEffect([
+  const gfx = new GroupEffect([
     text,
     // cams,
-  ]),
-  document.timeline
-);
+  ]);
+
+
+let player = new Animation( gfx,  document.timeline);
 player.onfinish = () => player.play();
 // player.pause();
 player.play();
+// player.playbackRate = 3;
+// player.reverse();
 
+document.addEventListener('dblclick',(e)=>{
+  console.log('dd');
+  location.reload();
+});
+const cont:HTMLElement = document.querySelector('#container');
+const tmline:HTMLElement = document.querySelector('#timeline');
+cont.ontouchstart = (e)=>{
+  player.pause();
+  cont.ontouchmove =(e)=>{
+    const t = e.touches[0].clientX/cont.clientWidth;
+    player.currentTime = Math.floor( player.effect.activeDuration * t );
+    tmline.style.transform = `scaleX(${t})`
+    tmline.hidden = false;
+    tmline.style.visibility = 'visible';
+  }
+}
+cont.ontouchend = (e)=>{
+  player.play();
+  cont.onmousemove = null;
+  tmline.style.visibility = 'hidden';
+}
+function updateScrubberFeedback(){
 
+}
 
-
-      
-    // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
+// const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   // player.ready.then( ()=>requestAnimationFrame(onFrame));
   // function onFrame(timestamp) {
     // console.log( timestamp );
