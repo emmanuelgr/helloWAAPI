@@ -54,6 +54,7 @@ body {
 }
 #world{
   transform-style: preserve-3d;
+  opacity: 0;
 }
 
 .ddd{
@@ -102,7 +103,16 @@ body {
   position: absolute;
   background-color: rgb(138, 8, 245);
 }
-
+canvas {
+  position: absolute;
+  transform: translate3d(50vw,50vh, 0);
+  -ms-interpolation-mode: nearest-neighbor;   
+  image-rendering: -webkit-optimize-contrast; 
+  image-rendering: -webkit-crisp-edges; 
+  image-rendering: -moz-crisp-edges; 
+  image-rendering: -o-crisp-edges; 
+  image-rendering: pixelated;
+}
 #bgs{
   position: absolute;
   transform: translate3d(50vw,50vh, 0);
@@ -250,7 +260,7 @@ span#eme >span{
 
 
 #creative{
-  color:#fdd935;
+  /* color:#fdd935; */
   font-size:10.5vmin;
   font-weight: 300;
   letter-spacing: 1.5vmin;
@@ -276,5 +286,5 @@ span#eme >span{
 }
 
 #heartBg{
-  background-color: #424242;
+  background-color: #fff9c4;
 }

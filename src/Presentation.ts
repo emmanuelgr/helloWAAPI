@@ -49,15 +49,16 @@ export default function() {
 //       }
 //       player.play();
 
+world.style.opacity = '1';
 let timeToEnter=333;
 const hellothere = HelloThere(timeToEnter);
 timeToEnter += hellothere.activeDuration-1900;
 const iam = Iam(timeToEnter);
 timeToEnter += iam.activeDuration-1600
 const aSoftDev = AsoftwareDev(timeToEnter);
-timeToEnter += aSoftDev.activeDuration-5500
+timeToEnter += aSoftDev.activeDuration-4500
 const aGeek = AGeekByNature(timeToEnter);
-timeToEnter += aGeek.activeDuration-6200
+timeToEnter += aGeek.activeDuration-7800
 const byHeart = ByHeart(timeToEnter);
 timeToEnter += byHeart.activeDuration-500
 // const iam = Iam(0);

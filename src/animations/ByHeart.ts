@@ -7,34 +7,36 @@ import Spinner from "../Spinner";
 
 export default function(delay:number=0){
   const kfs = [];
-  for (let i = 0; i < 1; i++) {
-    const mtn = new Motion(new Spinner(i, `spin${i}`, "#spinners", "spinner").get(), delay + 150*i);
-    mtn.addKey(0, new Props()
-        .S((i+1)*3,(i+1)*3,1)
-        .TZ(`${i*1}px`)
-        .RZ("1turn")
-        .get());
+  for (let i = 0; i < 6; i++) {
+    const mtn = new Motion(new Spinner(i, `spin${i}`, "#spinners", "spinner").get(), delay + 170*i);
+    const s = 140;
+    mtn.addKey(0, new Props().S().RZ("0.5turn").O(0).F().get());
+    mtn.addKey(1, new Props().S((i+1)*s,(i+1)*s,1).RZ("0.5turn").O(1).F().get());
     mtn.setEas(esz.s.EASE_OUT5);
-    mtn.addKey(2222, new Props()
-        .S(0, 0, 0)
-        .TZ(`${i*1}px`)
-        .RZ()
-        .get());
-        kfs.push(mtn.get());
+    mtn.addKey(1311, new Props().S(0, 0, 0).RZ().O(1).F().get());
+    mtn.addKey(    1, new Props().S((i+1)*s,(i+1)*s,1).RZ().O(0).F().get());
+    kfs.push(mtn.get());
   }
 
 
 
-const creative = new Motion(document.querySelector('#creative'), delay+3333);
+const creative = new Motion(document.querySelector('#creative'), delay+2000);
+// creative.addKey(0,  new Props().O(0).F().get() );
+// creative.setEas(esz.s.EASE_IN_OUT);
+// creative.addKey(444, new Props().O(1).F().get() );
+// creative.holdPrev(2000);
+// creative.setEas(esz.s.EASE_IN_OUT);
+// creative.addKey(333,  new Props().O(0).F().get() );
 creative.addKey(0, { color:Colors.yellow.W500, ...new Props().O(0).F().get()});
 creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(555, { color:Colors.red.W500, ...new Props().O(1).F().get()});
+creative.addKey(777, { color:Colors.red.W500, ...new Props().O(1).F().get()});
 creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(555, { color:Colors.amber.W500, ...new Props().O(1).F().get()});
+creative.addKey(777, { color:Colors.amber.W500, ...new Props().O(1).F().get()});
 creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(555, { color:Colors.deepOrange.W500, ...new Props().O(1).F().get()});
+creative.addKey(777, { color:Colors.deepOrange.W500, ...new Props().O(1).F().get()});
 creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(555, { color:Colors.lime.W500, ...new Props().O(1).F().get()});
+creative.addKey(777, { color:Colors.lime.W500, ...new Props().O(1).F().get()});
+creative.holdPrev(999);
 creative.setEas(esz.s.EASE_IN_OUT);
 creative.addKey(444, { color:Colors.amber.W500,...new Props().O(0).F().get()});
 
@@ -63,11 +65,12 @@ const deDiv = document.createElement("div");
 deDiv.id = 'heartBg';
 deDiv.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv);
-const divMotion = new Motion(deDiv, delay + 2222);
-divMotion.addKey(0, new Props().O(0).S(100,100,1).F().get());
-divMotion.setEas(esz.s.LINEAR);
-divMotion.addKey(999, new Props().O(1).S(100,100,1).F().get());
-divMotion.holdPrev(2222);
+const divMotion = new Motion(deDiv, delay + 1000);
+divMotion.addKey(0, new Props().O(0).S(0,0,0).F().get() );
+divMotion.addKey(1, new Props().O(1).S(100,100,1).F().get());
+divMotion.setEas(esz.s.EASE_OUT3);
+divMotion.addKey(333, new Props().O(1).S(100,100,1).F().get());
+divMotion.holdPrev(3333);
 divMotion.setEas(esz.s.LINEAR);
 divMotion.addKey(444, new Props().O(0).S(100,100,1).F().get());
 

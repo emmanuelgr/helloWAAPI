@@ -41,12 +41,15 @@ deDiv.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv);
 deDiv.style.background = Colors.yellow.W500;
 const divMotion1 = new Motion(deDiv,delay+0);
-divMotion1.addKey(0, new Props().TY('100vh').S(100,100,1).F().get());
+
+divMotion1.addKey(0, new Props().TY('100vh').O(0).S(100,100,1).F().get());
+divMotion1.addKey(1, new Props().TY('100vh').O().S(100,100,1).F().get());
 divMotion1.setEas(esz.s.EASE_OUT5);
-divMotion1.addKey(1111, new Props().TY('0vh').S(100,100,1).F().get());
+divMotion1.addKey(1111, new Props().TY('0vh').O().S(100,100,1).F().get());
 divMotion1.holdPrev(666);
 divMotion1.setEas(esz.s.EASE_IN3);
-divMotion1.addKey(1111, new Props().TY('100vh').S(100,100,1).F().get());
+divMotion1.addKey(1111, new Props().TY('100vh').O().S(100,100,1).F().get());
+divMotion1.addKey(1, new Props().TY('100vh').O(0).S(100,100,1).F().get());
 
 const deDiv2 = document.createElement("div");
 deDiv2.id = 'aSoft2';
@@ -54,12 +57,14 @@ deDiv2.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv2);
 deDiv2.style.background = Colors.yellow.W300;
 const divMotion2 = new Motion(deDiv2,delay+100);
-divMotion2.addKey(0, new Props().TY('100vh').S(100,100,1).F().get());
+divMotion2.addKey(0, new Props().TY('100vh').O(0).S(100,100,1).F().get());
+divMotion2.addKey(1, new Props().TY('100vh').O().S(100,100,1).F().get());
 divMotion2.setEas(esz.s.EASE_OUT5);
-divMotion2.addKey(1111, new Props().TY('0vh').S(100,100,1).F().get());
+divMotion2.addKey(1111, new Props().TY('0vh').O().S(100,100,1).F().get());
 divMotion2.holdPrev(333);
 divMotion2.setEas(esz.s.EASE_IN3);
-divMotion2.addKey(1111, new Props().TY('100vh').S(100,100,1).F().get());
+divMotion2.addKey(1111, new Props().TY('100vh').O().S(100,100,1).F().get());
+divMotion2.addKey(1, new Props().TY('100vh').O(0).S(100,100,1).F().get());
 
 
 
@@ -69,12 +74,14 @@ deDiv3.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv3);
 deDiv3.style.background = Colors.yellow.W200;
 const divMotion3 = new Motion(deDiv3,delay+200);
-divMotion3.addKey(0, new Props().TY('100vh').S(100,100,1).F().get());
+divMotion3.addKey(0, new Props().TY('100vh').O(0).S(100,100,1).F().get());
+divMotion3.addKey(1, new Props().TY('100vh').O(1).S(100,100,1).F().get());
 divMotion3.setEas(esz.s.EASE_OUT5);
-divMotion3.addKey(1111, new Props().TY('0vh').S(100,100,1).F().get());
+divMotion3.addKey(1111, new Props().TY('0vh').O(1).S(100,100,1).F().get());
 divMotion3.holdPrev(111);
 divMotion3.setEas(esz.s.EASE_IN3);
-divMotion3.addKey(1111, new Props().TY('100vh').S(100,100,1).F().get());
+divMotion3.addKey(1111, new Props().TY('100vh').O(1).S(100,100,1).F().get());
+divMotion3.addKey(1, new Props().TY('100vh').O(0).S(100,100,1).F().get());
 
 
 const papa = new Motion(document.querySelector('#seq3'), delay);
