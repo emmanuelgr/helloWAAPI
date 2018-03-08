@@ -53,8 +53,8 @@ body {
   transform:rotate3d( 0, 1, 0, 0);/*none*/
 }
 #world{
+  position: absolute;
   transform-style: preserve-3d;
-  opacity: 0;
 }
 
 .ddd{
@@ -103,6 +103,7 @@ body {
   position: absolute;
   background-color: rgb(138, 8, 245);
 }
+
 canvas {
   position: absolute;
   transform: translate3d(50vw,50vh, 0);
@@ -112,6 +113,9 @@ canvas {
   image-rendering: -moz-crisp-edges; 
   image-rendering: -o-crisp-edges; 
   image-rendering: pixelated;
+  /* background-image: url(./images/Spinners.png); */
+  /* background-repeat: no-repeat; */
+  /* background-size: 170px 17px */
 }
 #bgs{
   position: absolute;

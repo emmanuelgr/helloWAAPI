@@ -52,6 +52,8 @@ motionBg1.addKey(999, new Props().O(1).S(10,10,1).F().get());
 motionBg1.holdPrev(666);
 motionBg1.setEas(esz.s.EASE_OUT3);
 motionBg1.addKey(333, new Props().O(0).S(10,10,1).F().get());
+// motionBg1.holdPrev( 2000 );
+// motionBg1.addKey(1, new Props().O(0).S(0,0,0).F().get());
 
 
 const bg2: HTMLDivElement = document.createElement("div");
@@ -65,6 +67,8 @@ motionBg2.setEas(esz.s.EASE_OUT1);
 motionBg2.addKey(999, new Props().O(1).S(5,5, 1).F().get());
 motionBg2.setEas(esz.s.EASE_IN1);
 motionBg2.addKey(444, new Props().O(0).S(0,0,1).F().get());
+// motionBg2.holdPrev( 2000 );
+// motionBg2.addKey(1, new Props().O(0).S(0,0,0).F().get());
 
 const bg3: HTMLDivElement =document.createElement("div");
 bg3.style.background = Colors.amber.W700;
@@ -77,6 +81,8 @@ motionBg3.setEas(esz.s.EASE_OUT1);
 motionBg3.addKey(999, new Props().O(1).S(3,3,1).F().get());
 motionBg3.setEas(esz.s.EASE_IN1);
 motionBg3.addKey(222, new Props().O(0).S(0,0,1).F().get());
+// motionBg3.holdPrev( 2000 );
+// motionBg3.addKey(1, new Props().O(0).S(0,0,0).F().get());
 
 const cam = new Motion( document.querySelector('#seq2'), delay);
 cam.addKey(0, new Props().T(0, 0, 0).R(0, 0, 0).get());

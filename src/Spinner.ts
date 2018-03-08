@@ -2,6 +2,7 @@ import Colors from "./Colors";
 
 export default class Spinner {
   cnvs:HTMLCanvasElement;
+  // cnvs:HTMLDivElement;
   colors = [
     [Colors.amber.W300, Colors.amber.W500,Colors.amber.W700,Colors.amber.W900],
     [Colors.red.W300, Colors.red.W500,Colors.red.W700,Colors.red.W900],
@@ -9,8 +10,8 @@ export default class Spinner {
     [Colors.purple.W300, Colors.purple.W500,Colors.purple.W700,Colors.purple.W900],
   ];
   constructor(clrIndx, idPrefix, parentSelector, className) {
-    const w = 9*4;
-    const h = 8*4;
+    const w = 9*20;
+    const h = 8*20;
     const size = w+h;
     this.cnvs = document.createElement("canvas");
     this.cnvs.setAttribute('width', `${size}`);
@@ -25,7 +26,15 @@ export default class Spinner {
       cntx.fillRect( h,w, w, h);
       cntx.fillStyle = this.colors[clrIndx % this.colors.length][3];
       cntx.fillRect( 0,h, h, w);
-    document.querySelector(parentSelector).appendChild(this.cnvs);
+
+      // this.cnvs = document.createElement("div");
+      // this.cnvs.classList.add('spinner');
+      // this.cnvs.style.width =  `${size}px`;
+      // this.cnvs.style.height =  `${size}px`;
+      // this.cnvs.style.backgroundPositionX = `${clrIndx*-17}px`
+      // this.cnvs.style.position ='absolute';
+
+      document.querySelector(parentSelector).appendChild(this.cnvs);
   }
   get(){
     return this.cnvs;

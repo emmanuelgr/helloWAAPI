@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel --no-hmr --no-cache --open -p 8080 ./src/index.html",
-    "build": "parcel build index.html -d prod/",
+    "prebuild": "rm -rf prod/www/*",
+    "build": "parcel build ./src/index.html --public-url ./ -d prod/www/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

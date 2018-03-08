@@ -3,8 +3,8 @@
   "name": "Emmanuel's Animated Intro ++",
   "icons": [
     {
-      "src": "launcher-icon-4x.png",
-      "sizes": "192x192",
+      "src": "apple-touch-icon.png",
+      "sizes": "152x152",
       "type": "image/png"
     }
   ],
