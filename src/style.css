@@ -292,3 +292,15 @@ span#eme >span{
 #heartBg{
   background-color: #fff9c4;
 }
+
+#beta {
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  right: 30px;
+  top: 0;
+  width: 30px;
+}
