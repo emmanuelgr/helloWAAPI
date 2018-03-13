@@ -14,6 +14,7 @@ export default class Spinner {
     const h = 8*20;
     const size = w+h;
     this.cnvs = document.createElement("canvas");
+    this.cnvs.classList.add('spinner');
     this.cnvs.setAttribute('width', `${size}`);
     this.cnvs.setAttribute('height', `${size}`);
     const cntx = this.cnvs.getContext('2d');

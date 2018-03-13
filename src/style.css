@@ -17,193 +17,162 @@ body {
   height: 100%;
   font-family: "Lato", "Open Sans","Helvetica","Arial",sans-serif;
 }
-
+:root{
+  --persp:436px;
+  --minv:1;
+}
 #container {
   position: relative;
   /* background-color: rgb(228, 228, 228); */
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  display: flex;
 }
 #timeline{
   position: absolute;
   transform-origin: 0 0;
-  height: 10px;
+  bottom: 0;
+  height: 3px;
   width: 100%;
-  background-color: #fdd935;
-  z-index: 9999;
-  visibility: hidden;
+  background-color: #f9a825;
 }
-#origin {
+#world{
   pointer-events: none;
   user-select: none;
-  position: absolute; /* << */
-  transform: translate3d(50vw,50vh,0);/* << */
-}
-#camera{
-  transform-origin: 0 0; /* << */
+  position: absolute;
+  width: 100%;
+  height: 100%;
   /* backface-visibility: hidden; */
   /* Set the scene perspective both lines go together */
   perspective: 450px;
-  /* perspective-origPin: 88% 55%; */
-  transform-style: preserve-3d; /* << */
-  /* 4 DEBUGGING */
-  transform:rotate3d( 1, 0, 0, -90deg);/*top*/
-  transform:rotate3d( 0, 1, 0, -90deg);/*side*/
-  transform:rotate3d( 0, 1, 0, 0);/*none*/
-}
-#world{
-  position: absolute;
   transform-style: preserve-3d;
+  /* 4 DEBUGGING */
+  /*top*/
+  /* transform:rotate3d( 1, 0, 0, -90deg); */
+  /*side*/
+  /* transform:rotate3d( 0, 1, 0, -90deg); */
+  /* transform:rotate3d( 0, 1, 0, -45deg); */
+  transform:rotate3d( 0, 1, 0, 0deg);
+  /*none*/
+  /* transform:rotate3d( 0, 1, 0, 0); */
 }
 
-.ddd{
+
+#fgs,
+#bgs{
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+#fgs *,
+#bgs *{
   position: absolute;
   transform-origin: 0 0;
-  transform-style: preserve-3d;
+  image-rendering: pixelated;
 }
-.ddd span{
-  display: inline-block;
+#bgColor{
+  width:1vw;
+  height: 1vh;
+  transform:scale(100);
+  background-color: #333;
+  image-rendering: pixelated;
 }
-.dddContainer {
-  transform: translate3d(-50%, -50%, 0) ;
-  position: relative;
-  /*  */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*  */
-  /* background-color: rgba(15, 139, 71, 0.5); */
+#spinners{
+    position: absolute;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
 }
-#grid {
+.spinner{
   position: absolute;
-  background-color: rgb(0, 0, 0);
-  backface-visibility: hidden;
-  opacity: 0.1;
-  
-  transform-origin: 0 0; /* << */
-  transform:rotate3d( 1, 0, 0, 90deg) translate3d(-50%, -50%, 0);/* XZ top*/
-  transform:rotate3d( 0, 1, 0, 90deg) translate3d(-50%, -50%, 0);/* YZ side*/
-  transform: translate3d(-50%, -50%, 0);/*default*/
-  width: 200px;
-  height: 200px;
-  background-image: linear-gradient(white 1px, transparent 1px),
-  linear-gradient(90deg, white 1px, transparent 1px),
-  linear-gradient(#aaa 1px, transparent 1px),
-  linear-gradient(90deg, #aaa 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
-  background-position: -0.5px -0.5px, -0.5px -0.5px, -1px -1px, -1px -1px;
-}
-#spacers{
-  transform-style: preserve-3d;  /* << */
-}
-.spacers{
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  background-color: rgb(138, 8, 245);
-}
-
-canvas {
-  position: absolute;
-  transform: translate3d(50vw,50vh, 0);
+  transform-origin: 0 0;
   -ms-interpolation-mode: nearest-neighbor;   
-  image-rendering: -webkit-optimize-contrast; 
-  image-rendering: -webkit-crisp-edges; 
-  image-rendering: -moz-crisp-edges; 
-  image-rendering: -o-crisp-edges; 
   image-rendering: pixelated;
   /* background-image: url(./images/Spinners.png); */
   /* background-repeat: no-repeat; */
   /* background-size: 170px 17px */
 }
-#bgs{
-  position: absolute;
-  transform: translate3d(50vw,50vh, 0);
-}
+
 /* My Shapes */
 .rect{
   position: absolute;
   transform: scale(100);
-  width: 1vw;
-  height: 1vh;
+  width: 1%;
+  height: 1%;
   transform-origin: 0 0;
 }
-
-.circle{
+.circ{
+  width: 100vmin;
+  height: 100vmin;
+}
+p{
   position: absolute;
-  /* width: 141vmax; */
-  /* height: 141vmax; */
-  /* border-radius: 70.5vmax; */
-  width: 14.1vmax;
-  height: 14.1vmax;
-  border-radius: 14.1vmax;
-  transform-origin: 0 0;
-}
-
-#text{
-  position: absolute;/* << */
-  transform-style: preserve-3d;/* << */
+  transform-style: preserve-3d;
   color: rgb(26, 21, 4);
-  font-size: 12.5vmin; /* 100vmin / max chars per word */
-  /* font-family: "Serif"; */
   font-weight: 100;
 }
 
-#text span{
-  position: absolute;  /* << */
-  transform-origin: 0 0;  /* << */
-  /* background-color: hsla(354, 74%, 42%, 0.5); */
+span{
+  position: absolute;
+  transform-origin: 0 0;
 }
-
-span#eme{
-  display: flex;  /* << */
-  position: absolute;  /* << */
-  transform-origin: 0 0;  /* << */
-  
-}
-
-span#eme >span{
-  display: block;
-  position: relative;
-}
-
 
 #hello{
+  position: absolute;
   color: #212121;
-  font-size:18vmin;
+  font-size: 18vmin;
   font-weight: 900;
-  letter-spacing: -1.0vmin;
   text-transform: lowercase;
 }
 
 #there{
+  position: absolute;
   color: #212121;
-  font-size:8vmin;
+  font-size:18vmin;
   font-weight: 200;
-  /* letter-spacing: -1.5vmin; */
-  /* text-transform: uppercase; */
 }
 
- #iam{
+#iam{
+  position: absolute;
   background-color:#fdd935;
-  font-size:4vmin;
+  font-size:9vmin;
   font-weight: 900;
-  letter-spacing: 0.4vmin;
-  padding: 2vmin;
+  padding: 3vmin 6vmin;
 }
 
 #eme{
+  position: absolute;
   color:#fdd935;
-  font-size:16vmin;
+  font-size:11vmin;
   font-weight: 900;
-  letter-spacing: -0.5vmin;
+  letter-spacing: 0.vmin;
+  text-transform: uppercase;
+  background-color: #232323;
+  padding: 6vmin;
+  display: flex;
+  transform-style: preserve-3d;
+  transform-origin: 0 -50px;
+}
+#eme > span{
+  position: relative;
+  transform-origin: 0 0;
+  padding:1vmin;
+}
+#votis{
+  position: absolute;
+  transform-style: preserve-3d;
+}
+#votis span{
+  position: absolute;
+  font-size: 5vmin;
+  font-weight: 900;
   text-transform: uppercase;
 }
+
 #a{
+  position: absolute;
   font-size: 5vmin;
   font-weight: 600;
-  letter-spacing: 5vmin;
   text-transform: lowercase;
 }
 
@@ -234,7 +203,7 @@ span#eme >span{
   color:#fdd935;
 }
 #geek{
-
+  position: absolute;
   color:#212121;
   font-size:110vmin;
   font-weight: 900;
@@ -243,9 +212,12 @@ span#eme >span{
 }
 
 #geekBg{
+  position: absolute;
   background-color: #212121;
 }
+
 #nature{
+  position: absolute;
   color:#fdd935;
   font-size:7.5vmin;
   font-weight: 300;
@@ -253,43 +225,45 @@ span#eme >span{
   text-transform: uppercase;
 }
 
-#origin *{
-  transform-origin: 0 0;
-}
-.spinner{
+#creativeBy{
   position: absolute;
-  transform-origin: 0 0;
-  /* opacity: 0.9; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(50vw,50vh,0) translate3d(-50%,-50%,0);
 }
-
-
+#creativeBy *{
+  display: block;
+  padding: 3vmin;
+}
 #creative{
-  /* color:#fdd935; */
+  position: relative;
   font-size:10.5vmin;
   font-weight: 300;
   letter-spacing: 1.5vmin;
   text-transform: uppercase;
-  position: absolute;
-  
 }
+
 #byheart{
-  color:#212121;
-  font-size:4.5vmin;
+  position: relative;
+  color:#880e4f;
+  font-size:2.5vmin;
   font-weight: 900;
-  position: absolute;
   
 }
 #heart{
-  color: #212121;
+  position: relative;
+  color: #880e4f;
   font-size:5.5vmin;
   font-weight: 900;
   letter-spacing: 9.5vmin;
   text-transform: uppercase;
-  position: absolute;
   
 }
 
 #heartBg{
+  position: absolute;
   background-color: #fff9c4;
 }
 
@@ -303,4 +277,27 @@ span#eme >span{
   right: 30px;
   top: 0;
   width: 30px;
+}
+
+#time{
+  position: absolute;
+  left: 30px;
+  font-weight: 900;
+  letter-spacing: 0.7rem;
+  font-size: 0.7rem;
+  bottom: 14px;
+}
+#playPause{
+  position: absolute;
+  bottom: 15px;
+  background-color: #252525;
+  width: 10px;
+  height: 10px;
+  left: 10px;
+}
+#playPause[pause]{
+  background-color: #ab1616;
+}
+#playPause:hover{
+  cursor:pointer; 
 }

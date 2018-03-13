@@ -2,7 +2,7 @@ import * as esz from "./Ease";
 
 export default class Motion {
   id: 'NonSet';
-  element: HTMLElement;
+  element: Element;
   animationKeyFrames: AnimationKeyFrame[] = [];
   interpolations: string [] = [];
   deltaTime: number[] = [];
@@ -10,7 +10,7 @@ export default class Motion {
   endDelay: number;
   tim: AnimationEffectTiming;
 
-  constructor(element: HTMLElement, delay: number = 0, endDelay: number = 0, fillBoth=true) {
+  constructor(element: Element, delay: number = 0, endDelay: number = 0, fillBoth=true) {
     this.element = element;
     this.delay = delay;
     this.endDelay = endDelay;
