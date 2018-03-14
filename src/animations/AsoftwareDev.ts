@@ -42,14 +42,14 @@ document.querySelector('#bgs').appendChild(deDiv);
 deDiv.style.background = Colors.yellow.W500;
 const divMotion1 = new Motion(deDiv,delay+0);
 
-divMotion1.addKey(0, new Props().C().TY(100).O(0).S(100).F().get());
-divMotion1.addKey(1, new Props().C().TY(100).O().S(100).F().get());
+divMotion1.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
+divMotion1.addKey(1, new Props().C().TY(100).O().S(10).F().get());
 divMotion1.setEas(esz.s.EASE_OUT5);
-divMotion1.addKey(1111, new Props().C().TY(0).O().S(100).F().get());
+divMotion1.addKey(1111, new Props().C().TY(0).O().S(10).F().get());
 divMotion1.holdPrev(666);
 divMotion1.setEas(esz.s.EASE_IN3);
-divMotion1.addKey(1111, new Props().C().TY(100).O().S(100).F().get());
-divMotion1.addKey(1, new Props().C().TY(100).O(0).S(100).F().get());
+divMotion1.addKey(1111, new Props().C().TY(100).O().S(10).F().get());
+divMotion1.addKey(1, new Props().C().TY(100).O(0).S(10).F().get());
 
 const deDiv2 = document.createElement("div");
 deDiv2.id = 'aSoft2';
@@ -57,16 +57,14 @@ deDiv2.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv2);
 deDiv2.style.background = Colors.yellow.W300;
 const divMotion2 = new Motion(deDiv2,delay+100);
-divMotion2.addKey(0, new Props().C().TY(100).O(0).S(100).F().get());
-divMotion2.addKey(1, new Props().C().TY(100).O().S(100).F().get());
+divMotion2.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
+divMotion2.addKey(1, new Props().C().TY(100).O().S(10).F().get());
 divMotion2.setEas(esz.s.EASE_OUT5);
-divMotion2.addKey(1111, new Props().C().TY(0).O().S(100).F().get());
+divMotion2.addKey(1111, new Props().C().TY(0).O().S(10).F().get());
 divMotion2.holdPrev(333);
 divMotion2.setEas(esz.s.EASE_IN3);
-divMotion2.addKey(1111, new Props().C().TY(100).O().S(100).F().get());
-divMotion2.addKey(1, new Props().C().TY(100).O(0).S(100).F().get());
-
-
+divMotion2.addKey(1111, new Props().C().TY(100).O().S(10).F().get());
+divMotion2.addKey(1, new Props().C().TY(100).O(0).S(10).F().get());
 
 const deDiv3 = document.createElement("div");
 deDiv3.id = 'aSoft3';
@@ -74,21 +72,14 @@ deDiv3.classList.add('rect');
 document.querySelector('#bgs').appendChild(deDiv3);
 deDiv3.style.background = Colors.yellow.W200;
 const divMotion3 = new Motion(deDiv3,delay+200);
-divMotion3.addKey(0, new Props().C().TY(100).O(0).S(100).F().get());
-divMotion3.addKey(1, new Props().C().TY(100).O(1).S(100).F().get());
+divMotion3.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
+divMotion3.addKey(1, new Props().C().TY(100).O(1).S(10).F().get());
 divMotion3.setEas(esz.s.EASE_OUT5);
-divMotion3.addKey(1111, new Props().C().TY(0).O(1).S(100).F().get());
+divMotion3.addKey(1111, new Props().C().TY(0).O(1).S(10).F().get());
 divMotion3.holdPrev(111);
 divMotion3.setEas(esz.s.EASE_IN3);
-divMotion3.addKey(1111, new Props().C().TY(100).O(1).S(100).F().get());
-divMotion3.addKey(1, new Props().C().TY(100).O(0).S(100).F().get());
-
-const bgColorKeyFX = new KeyframeEffect(document.querySelector('#bgColor'),
-[
-  { backgroundColor:Colors.yellow.W200, opacity:1},
-  { backgroundColor:Colors.yellow.W200, opacity:1},
-],{delay:delay + 0, duration:1,fill:'forwards'}
-);
+divMotion3.addKey(1111, new Props().C().TY(100).O(1).S(10).F().get());
+divMotion3.addKey(1, new Props().C().TY(100).O(0).S(10).F().get());
 
 const papa = new Motion(document.querySelector('#seq3'), delay);
 papa.addKey(0, new Props().C().T(0, 0, -10).R(      -30, 0, 0  ).get());
@@ -106,7 +97,6 @@ const g = new GroupEffect([
       divMotion1.get(),
       divMotion2.get(),
       divMotion3.get(),
-      bgColorKeyFX,
     // papa.get(),
 ]);
 return g;

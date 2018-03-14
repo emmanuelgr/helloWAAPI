@@ -15,28 +15,19 @@ body {
   position: relative;
   background-color: #333;
   height: 100%;
-  font-family: "Lato", "Open Sans","Helvetica","Arial",sans-serif;
+  font-family: "LatoLatinWeb", "Open Sans","Helvetica",sans-serif;
 }
 :root{
   --persp:436px;
   --minv:1;
 }
 #container {
-  position: relative;
-  /* background-color: rgb(228, 228, 228); */
+  position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  display: flex;
 }
-#timeline{
-  position: absolute;
-  transform-origin: 0 0;
-  bottom: 0;
-  height: 3px;
-  width: 100%;
-  background-color: #f9a825;
-}
+
 #world{
   pointer-events: none;
   user-select: none;
@@ -53,12 +44,15 @@ body {
   /*side*/
   /* transform:rotate3d( 0, 1, 0, -90deg); */
   /* transform:rotate3d( 0, 1, 0, -45deg); */
+  transform:rotateX(-45deg) rotateY(-15deg);
   transform:rotate3d( 0, 1, 0, 0deg);
   /*none*/
   /* transform:rotate3d( 0, 1, 0, 0); */
 }
 
-
+#world *{
+  visibility:hidden;
+}
 #fgs,
 #bgs{
   position: absolute;
@@ -67,19 +61,21 @@ body {
 }
 #fgs *,
 #bgs *{
+  visibility:hidden;
   position: absolute;
   transform-origin: 0 0;
   image-rendering: pixelated;
 }
 #bgColor{
-  width:1vw;
-  height: 1vh;
-  transform:scale(100);
+  position: absolute;
+  width:10vw;
+  height: 10vh;
+  transform:scale(10);
   background-color: #333;
   image-rendering: pixelated;
 }
 #spinners{
-    position: absolute;
+  position: absolute;
     transform-style: preserve-3d;
     transform-origin: 0 0;
 }
@@ -91,16 +87,18 @@ body {
   /* background-image: url(./images/Spinners.png); */
   /* background-repeat: no-repeat; */
   /* background-size: 170px 17px */
+  visibility:hidden;
 }
 
 /* My Shapes */
 .rect{
   position: absolute;
-  transform: scale(100);
-  width: 1%;
-  height: 1%;
+  transform: scale(10);
+  width: 10%;
+  height: 10%;
   transform-origin: 0 0;
 }
+.ring,
 .circ{
   width: 100vmin;
   height: 100vmin;
@@ -109,7 +107,7 @@ p{
   position: absolute;
   transform-style: preserve-3d;
   color: rgb(26, 21, 4);
-  font-weight: 100;
+  font-family:'LatoLatinWebHairline';
 }
 
 span{
@@ -121,7 +119,7 @@ span{
   position: absolute;
   color: #212121;
   font-size: 18vmin;
-  font-weight: 900;
+  font-family: 'LatoLatinWebHeavy';
   text-transform: lowercase;
 }
 
@@ -130,28 +128,33 @@ span{
   color: #212121;
   font-size:18vmin;
   font-weight: 200;
+  font-family: 'LatoLatinWebLight';
 }
-
+#iamPapa{
+  position: absolute;
+  transform-style: preserve-3d;
+}
 #iam{
   position: absolute;
-  background-color:#fdd935;
-  font-size:9vmin;
-  font-weight: 900;
-  padding: 3vmin 6vmin;
+  background-color:#f9a825;
+  font-size:7vmin;
+  font-family: 'LatoLatinWebHeavy';
+  text-transform: uppercase;
+  padding: 7vmin 6vmin;
 }
 
 #eme{
   position: absolute;
-  color:#fdd935;
-  font-size:11vmin;
-  font-weight: 900;
+  color:#f9a825;
+  font-size:9vmin;
+font-family: 'LatoLatinWebHeavy';
   letter-spacing: 0.vmin;
   text-transform: uppercase;
   background-color: #232323;
   padding: 6vmin;
   display: flex;
   transform-style: preserve-3d;
-  transform-origin: 0 -50px;
+  transform-origin: 0 0;
 }
 #eme > span{
   position: relative;
@@ -163,50 +166,51 @@ span{
   transform-style: preserve-3d;
 }
 #votis span{
+  color:#f9a825;
   position: absolute;
   font-size: 5vmin;
-  font-weight: 900;
+font-family: 'LatoLatinWebHeavy';
   text-transform: uppercase;
 }
 
 #a{
   position: absolute;
   font-size: 5vmin;
-  font-weight: 600;
+  font-family: 'LatoLatinWebMedium';
   text-transform: lowercase;
 }
 
 #software{
   font-size:10vmin;
-  font-weight: 100;
+  font-family:'LatoLatinWebHairline';
   letter-spacing: 1.5vmin;
   text-transform: uppercase;
 }
 
 #dev{
   font-size: 6vmin;
-  font-weight: 800;
+  font-family: 'LatoLatinWebHeavy';
   letter-spacing: 3vmin;
   text-transform: uppercase;
 }
 
 #ageek{
   font-size:44vmin;
-  font-weight: 100;
+  font-family:'LatoLatinWebHairline';
   color:#fdd935;
   z-index: 1;
 }
 
 #by{
-  font-size:8vmin;
-  font-weight: 400;
+  font-size:4vmin;
+  font-family: 'LatoLatinWebMedium';
   color:#fdd935;
 }
 #geek{
   position: absolute;
   color:#212121;
   font-size:110vmin;
-  font-weight: 900;
+font-family: 'LatoLatinWebBlack';
   letter-spacing: -2.5vmin;
   text-transform: capitalize;
 }
@@ -220,7 +224,7 @@ span{
   position: absolute;
   color:#fdd935;
   font-size:7.5vmin;
-  font-weight: 300;
+  font-family: 'LatoLatinWebMedium';
   letter-spacing: 5.5vmin;
   text-transform: uppercase;
 }
@@ -231,7 +235,7 @@ span{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: translate3d(50vw,50vh,0) translate3d(-50%,-50%,0);
+  transform: translate3d(50vw,50vh,0) translate3d(-50%,0,0);
 }
 #creativeBy *{
   display: block;
@@ -240,7 +244,7 @@ span{
 #creative{
   position: relative;
   font-size:10.5vmin;
-  font-weight: 300;
+  font-family: 'LatoLatinWebMedium';
   letter-spacing: 1.5vmin;
   text-transform: uppercase;
 }
@@ -249,23 +253,18 @@ span{
   position: relative;
   color:#880e4f;
   font-size:2.5vmin;
-  font-weight: 900;
+font-family: 'LatoLatinWebHeavy';
   
 }
 #heart{
   position: relative;
   color: #880e4f;
   font-size:5.5vmin;
-  font-weight: 900;
+font-family: 'LatoLatinWebHeavy';
   letter-spacing: 9.5vmin;
-  text-transform: uppercase;
-  
+  text-transform: uppercase;  
 }
 
-#heartBg{
-  position: absolute;
-  background-color: #fff9c4;
-}
 
 #beta {
   position: absolute;
@@ -279,10 +278,21 @@ span{
   width: 30px;
 }
 
+
+
+#timeline{
+  position: absolute;
+  transform-origin: 0 0;
+  transform: translate(0, 100vh) translate(0,-100%);
+  height: 3px;
+  width: 100%;
+  background-color: #f9a825;
+}
+
 #time{
   position: absolute;
   left: 30px;
-  font-weight: 900;
+font-family: 'LatoLatinWebHeavy';
   letter-spacing: 0.7rem;
   font-size: 0.7rem;
   bottom: 14px;
@@ -300,4 +310,41 @@ span{
 }
 #playPause:hover{
   cursor:pointer; 
+}
+
+
+#scrolltainer{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  /* z-index: 9999; */
+  user-select: all;
+  pointer-events: all;
+  position: absolute;
+}
+#scrolltent{
+  transform: translate(100vw,0) translate(-100%, 0);
+  width:3px;
+  background-color: tomato;
+  /* background-image: url('./images/Spinners.png'); */
+  height:1000px ;
+
+  -webkit-overflow-scrolling: touch;
+  color: white;
+  background: linear-gradient(
+    to bottom,
+    #333,
+    #333 50%,
+    #999 50%,
+    #999
+  );
+  background-size: 100% 0px;
+}
+
+#ttt{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: tomato;
 }

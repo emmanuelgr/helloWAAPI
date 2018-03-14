@@ -2,7 +2,7 @@ import * as esz from "./Ease";
 
 export default class Motion {
   id: 'NonSet';
-  element: Element;
+  element: HTMLElement;
   animationKeyFrames: AnimationKeyFrame[] = [];
   interpolations: string [] = [];
   deltaTime: number[] = [];
@@ -11,13 +11,13 @@ export default class Motion {
   tim: AnimationEffectTiming;
 
   constructor(element: Element, delay: number = 0, endDelay: number = 0, fillBoth=true) {
-    this.element = element;
+    this.element = element as HTMLElement;
     this.delay = delay;
     this.endDelay = endDelay;
     this.tim = {
       delay: this.delay,
       endDelay: this.endDelay,
-      fill: fillBoth?"both":"none"
+      fill: fillBoth?"none":"none"
     };
   }
   holdPrev(holdTime:number){
@@ -30,7 +30,7 @@ export default class Motion {
     deltaTime: number,
     animationKeyFrame: AnimationKeyFrame,
   ) {
-    this.animationKeyFrames.push(animationKeyFrame);
+    this.animationKeyFrames.push({visibility: 'visible', ...animationKeyFrame});
     this.deltaTime.push(deltaTime);
     this.interpolations.push(esz.s.STEPS6);
   }

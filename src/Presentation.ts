@@ -16,6 +16,8 @@ import ByHeart from "./animations/ByHeart";
 import Timeline from "./Timeline";
 import Grid from "./geom/Grid";
 import Spacers from "./geom/Spacers";
+import Ring from "./animations/Ring";
+import Votis from "./animations/Votis";
 //
 export default function() {
   const m = new Model().get();
@@ -36,28 +38,54 @@ export default function() {
   //    new Props().C().T().get()],
   //   {duration:0,fill:'both'}
   // );
+  const motionBgClr = new Motion(document.querySelector('#bgColor'),0 );
+  motionBgClr.addKey(0, { backgroundColor:Colors.grey.W700} );
+  motionBgClr.holdPrev(888);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W700} );
+  motionBgClr.holdPrev(666);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W900} );
+  motionBgClr.holdPrev(999);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W800} );
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W700} );
+  motionBgClr.holdPrev(555);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W600} );
+  motionBgClr.holdPrev(2000);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
+  motionBgClr.holdPrev(2500);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W900} );
+  motionBgClr.holdPrev(1000);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
+  motionBgClr.holdPrev(2000);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W900} );
+  motionBgClr.holdPrev(4000);
+  // motionBgClr.setEas(esz.s.EASE_IN2);
+  // motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
+  // motionBgClr.holdPrev(4000);
+  // motionBgClr.setEas(esz.s.EASE_IN2);
+  // motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
+  // motionBgClr.holdPrev(8000);
+  
 
-
-  let timeToEnter = 999;
-  const hellothere = HelloThere(timeToEnter);
-  timeToEnter += hellothere.activeDuration-1500;
-  const iam = Iam(timeToEnter);
-  timeToEnter += iam.activeDuration-2000
-    const aSoftDev = AsoftwareDev(timeToEnter);
-  timeToEnter += aSoftDev.activeDuration-5900
-  const aGeek = AGeekByNature(timeToEnter);
-  timeToEnter += aGeek.activeDuration-7800
-  const byHeart = ByHeart(timeToEnter);
-  timeToEnter += byHeart.activeDuration-500
-  // iam = Iam(0);
-  // aGeek = AGeekByNature(0);
-  // aGeek = AGeekByNature(0);
-  // byHeart = ByHeart(0);
-  // hellothere = HelloThere(0);
+  const hellothere = HelloThere(999);
+  const iam = Iam(hellothere.activeDuration-700);
+  const votis = Votis(iam.activeDuration-200);
+  const aSoftDev = AsoftwareDev(votis.activeDuration-100);
+  const aGeek = AGeekByNature(aSoftDev.activeDuration-200);
+  const byHeart = ByHeart(aGeek.activeDuration-800);
   //
   const text = new GroupEffect([
     hellothere,
     iam,
+    votis,
     aSoftDev,
     aGeek,
     byHeart,
@@ -69,15 +97,19 @@ export default function() {
     CameraMotions().cam3.get()
   ]);
 
+  const ring = Ring(0,1, 256,'#fff',Colors.grey.W900);
+
   const gfx = new GroupEffect([
-    text
+    text,
     // cams,
+    motionBgClr.get(),
+    // ring
   ]);
 
   m.player = new Animation(gfx, document.timeline);
   m.player.onfinish = () => m.player.play();
-  // m.player.pause();
-  m.player.play();
+  m.player.pause();
+  // m.player.play();
   // m.player.playbackRate = 3;
   // m.player.reverse();
   Timeline();

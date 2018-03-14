@@ -8,32 +8,32 @@ export default function() {
   });
   const cont: HTMLElement = document.querySelector("#container");
   const tmline: HTMLElement = document.querySelector("#timeline");
-  cont.onmousedown = e => {
-    m.player.pause();
-    updateScrubberFeedback(e.clientX);
-    cont.onmousemove = e => {
-      updateScrubberFeedback(e.clientX);
-    };
-  };
-  cont.onmouseup = e => {
-    if( playPause.getAttribute("pause") == null ) m.player.play();
-    cont.onmousemove = null;
-  };
-  cont.ontouchstart = e => {
-    m.player.pause();
-    updateScrubberFeedback(e.touches[0].clientX);
-    cont.ontouchmove = e => {
-      updateScrubberFeedback(e.touches[0].clientX);
-    };
-  };
-  cont.ontouchend = e => {
-    m.player.play();
-    cont.onmousemove = null;
-  };
-  function updateScrubberFeedback(x) {
-    const t = x / cont.clientWidth;
-    m.player.currentTime = Math.floor(m.player.effect.activeDuration * t);
-  }
+  // cont.onmousedown = e => {
+  //   m.player.pause();
+  //   updateScrubberFeedback(e.clientX);
+  //   cont.onmousemove = e => {
+  //     updateScrubberFeedback(e.clientX);
+  //   };
+  // };
+  // cont.onmouseup = e => {
+  //   if( playPause.getAttribute("pause") == null ) m.player.play();
+  //   cont.onmousemove = null;
+  // };
+  // cont.ontouchstart = e => {
+  //   m.player.pause();
+  //   updateScrubberFeedback(e.touches[0].clientX);
+  //   cont.ontouchmove = e => {
+  //     updateScrubberFeedback(e.touches[0].clientX);
+  //   };
+  // };
+  // cont.ontouchend = e => {
+  //   m.player.play();
+  //   cont.onmousemove = null;
+  // };
+  // function updateScrubberFeedback(x) {
+  //   const t = x / cont.clientWidth;
+  //   m.player.currentTime = Math.floor(m.player.effect.activeDuration * t);
+  // }
   const playPause: HTMLElement = document.querySelector("#playPause");
   playPause.onmousedown = e => {
     e.stopPropagation();
@@ -49,10 +49,29 @@ export default function() {
   function onTick(e) {
     time.textContent = Math.round(m.player.currentTime).toString();
     const r = m.player.currentTime / m.player.effect.activeDuration;
-    tmline.style.transform = `scaleX(${r})`;
+    tmline.style.transform = `translate(0, 100vh) scaleX(${r})  translate(0,-100%)`;
     requestAnimationFrame(onTick);
   }
   requestAnimationFrame(onTick);
+
+
+    
+  const scrolltainer = document.querySelector('#scrolltainer');
+
+  let timeoutID;
+  const onSroll: EventListenerOrEventListenerObject = function (e) {
+    // console.log(ssss.scrollTop + " " + ssss.scrollHeight + " " + ssss.clientHeight);
+    if (m.player.playState == "running") {
+      m.player.pause();
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout((e) => {
+        document.ontouchend = null;
+        m.player.play();
+      }, 1000);
+    }
+    m.player.currentTime = scrolltainer.scrollTop / (scrolltainer.scrollHeight - scrolltainer.clientHeight) * m.player.effect.activeDuration;
+  };
+  scrolltainer.addEventListener('scroll', onSroll);
 
   // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   // player.ready.then( ()=>requestAnimationFrame(onFrame));

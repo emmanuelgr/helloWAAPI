@@ -20,6 +20,14 @@ function init() {
   // spinWorld();
   document.getElementById('world').ondragstart = function() { return false; };
   // setupResize();
+  window.addEventListener("load",function() {
+    setTimeout(function(){
+        // This hides the address bar:
+        console.log('3333');
+        
+        window.scrollTo(0, 1);
+    }, 0);
+});
   Presentation();
 }
 function spinWorld() {

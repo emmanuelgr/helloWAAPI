@@ -77,16 +77,29 @@ export default class Properties {
     this._transforms += `scale3d( ${v} ,${v} ,${v} ) `;
     return this;
   }
+  SX(x: number = 0) {
+    this._transforms += `scaleX(${x}) `;
+    return this;
+  }
+  SY(y: number = 0) {
+    this._transforms += `scaleY(${y}) `;
+    return this;
+  }
+  SZ(z: number = 0) {
+    this._transforms += `scaleZ(${z}) `;
+    return this;
+  }
   /**
    * Offset translation
    * to position the pivot of an element.
-   * Uses precentages as its relative to its own size.
-   * Defaults to -50% -50%
+   * Uses precentages for x and y as its relative to its own size.
+   * Defaults to -50% -50% 0px
    * @param x default to -50%
    * @param y default to -50%
+   * @param z default to 0px
    */
-  F(x: number = -50, y: number = -50) {
-    this._offset = `translate3d( ${x}%,  ${y}% , 0) `;
+  F(x: number = -50, y: number = -50,  z:string = '0px') {
+    this._offset = `translate3d( ${x}%,  ${y}% , ${z}) `;
     return this;
   }
   /**

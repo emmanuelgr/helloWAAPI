@@ -7,24 +7,6 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Webfont: LatoLatin-Bold */
-@font-face {
-  font-family: "LatoLatinWeb";
-  src: url("lato/LatoLatin-Bold.woff") format("woff");
-  font-style: normal;
-  font-weight: bold;
-  text-rendering: optimizeLegibility;
-}
-
-/* Webfont: LatoLatin-Hairline */
-@font-face {
-  font-family: "LatoLatinWebHairline";
-  src: url("lato/LatoLatin-Hairline.woff") format("woff");
-  font-style: normal;
-  font-weight: normal;
-  text-rendering: optimizeLegibility;
-}
-
 /* Webfont: LatoLatin-Heavy */
 @font-face {
   font-family: "LatoLatinWebHeavy";
@@ -34,10 +16,19 @@
   text-rendering: optimizeLegibility;
 }
 
-/* Webfont: LatoLatin-Light */
+/* Webfont: LatoLatin-Bold */
 @font-face {
-  font-family: "LatoLatinWebLight";
-  src: url("lato/LatoLatin-Light.woff") format("woff");
+  font-family: "LatoLatinWeb";
+  src: url("lato/LatoLatin-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: LatoLatin-Semibold */
+@font-face {
+  font-family: "LatoLatinWebSemibold";
+  src: url("lato/LatoLatin-Semibold.woff") format("woff");
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -52,6 +43,7 @@
   text-rendering: optimizeLegibility;
 }
 
+
 /* Webfont: LatoLatin-Regular */
 @font-face {
   font-family: "LatoLatinWeb";
@@ -60,11 +52,10 @@
   font-weight: normal;
   text-rendering: optimizeLegibility;
 }
-
-/* Webfont: LatoLatin-Semibold */
+/* Webfont: LatoLatin-Light */
 @font-face {
-  font-family: "LatoLatinWebSemibold";
-  src: url("lato/LatoLatin-Semibold.woff") format("woff");
+  font-family: "LatoLatinWebLight";
+  src: url("lato/LatoLatin-Light.woff") format("woff");
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
@@ -74,6 +65,14 @@
 @font-face {
   font-family: "LatoLatinWebThin";
   src: url("lato/LatoLatin-Thin.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: LatoLatin-Hairline */
+@font-face {
+  font-family: "LatoLatinWebHairline";
+  src: url("lato/LatoLatin-Hairline.woff") format("woff");
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
