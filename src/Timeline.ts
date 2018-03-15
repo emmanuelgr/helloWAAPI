@@ -3,40 +3,12 @@ import Model from "./Model";
 export default function() {
   const m = new Model().get();
   document.addEventListener("dblclick", e => {
-    console.log("dd");
     location.reload();
   });
-  const cont: HTMLElement = document.querySelector("#container");
   const tmline: HTMLElement = document.querySelector("#timeline");
-  // cont.onmousedown = e => {
-  //   m.player.pause();
-  //   updateScrubberFeedback(e.clientX);
-  //   cont.onmousemove = e => {
-  //     updateScrubberFeedback(e.clientX);
-  //   };
-  // };
-  // cont.onmouseup = e => {
-  //   if( playPause.getAttribute("pause") == null ) m.player.play();
-  //   cont.onmousemove = null;
-  // };
-  // cont.ontouchstart = e => {
-  //   m.player.pause();
-  //   updateScrubberFeedback(e.touches[0].clientX);
-  //   cont.ontouchmove = e => {
-  //     updateScrubberFeedback(e.touches[0].clientX);
-  //   };
-  // };
-  // cont.ontouchend = e => {
-  //   m.player.play();
-  //   cont.onmousemove = null;
-  // };
-  // function updateScrubberFeedback(x) {
-  //   const t = x / cont.clientWidth;
-  //   m.player.currentTime = Math.floor(m.player.effect.activeDuration * t);
-  // }
   const playPause: HTMLElement = document.querySelector("#playPause");
-  playPause.onmousedown = e => {
-    e.stopPropagation();
+  document.onmousedown = togglePlayback;
+  function togglePlayback(e){
     if (m.player.playState == "running") {
       m.player.pause();
       playPause.setAttribute("pause", "");
@@ -44,34 +16,50 @@ export default function() {
       playPause.removeAttribute("pause");
       m.player.play();
     }
-  };
-  const time: HTMLDivElement = document.querySelector("#time");
-  function onTick(e) {
-    time.textContent = Math.round(m.player.currentTime).toString();
-    const r = m.player.currentTime / m.player.effect.activeDuration;
-    tmline.style.transform = `translate(0, 100vh) scaleX(${r})  translate(0,-100%)`;
-    requestAnimationFrame(onTick);
   }
-  requestAnimationFrame(onTick);
 
-
-    
-  const scrolltainer = document.querySelector('#scrolltainer');
-
+  const time: HTMLDivElement = document.querySelector("#time");
+  const scrolltainer:HTMLDivElement = document.querySelector('#scrolltainer');
+  let requestAnimationFrameID;
+  let currentTimeRatio=0;
+  let manuallySettingScroll = true;
+  function onTick(e) {
+    manuallySettingScroll = true;
+    // const c =  (scrolltainer.scrollHeight - scrolltainer.clientHeight) * currentTimeRatio;
+    // scrolltainer.scrollTop = c;
+    updateUIs();
+    manuallySettingScroll = false;
+    requestAnimationFrameID = requestAnimationFrame(onTick);
+  }
+  requestAnimationFrameID = requestAnimationFrame(onTick);
+  scrolltainer.onscroll = onSroll;
+  
+  
   let timeoutID;
-  const onSroll: EventListenerOrEventListenerObject = function (e) {
+  function onSroll (e) {
+    if(manuallySettingScroll) return;
+    // console.log(e);
+    // console.log('on scroll trigeered ');
+    // cancelAnimationFrame(requestAnimationFrameID);
     // console.log(ssss.scrollTop + " " + ssss.scrollHeight + " " + ssss.clientHeight);
     if (m.player.playState == "running") {
       m.player.pause();
       clearTimeout(timeoutID);
       timeoutID = setTimeout((e) => {
-        document.ontouchend = null;
+        manuallySettingScroll = true;
         m.player.play();
-      }, 1000);
+      }, 100);
     }
     m.player.currentTime = scrolltainer.scrollTop / (scrolltainer.scrollHeight - scrolltainer.clientHeight) * m.player.effect.activeDuration;
+    // requestAnimationFrameID = requestAnimationFrame(onTick);
   };
-  scrolltainer.addEventListener('scroll', onSroll);
+
+function updateUIs(){
+  time.textContent = Math.round(m.player.currentTime).toString();
+  currentTimeRatio = m.player.currentTime / m.player.effect.activeDuration;
+  tmline.style.transform = `translate(0, 100vh) scaleX(${currentTimeRatio})  translate(0,-100%)`;
+}
+  // scrolltainer.addEventListener('scroll', onSroll);
 
   // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
   // player.ready.then( ()=>requestAnimationFrame(onFrame));

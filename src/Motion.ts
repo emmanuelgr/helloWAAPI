@@ -10,14 +10,14 @@ export default class Motion {
   endDelay: number;
   tim: AnimationEffectTiming;
 
-  constructor(element: Element, delay: number = 0, endDelay: number = 0, fillBoth=true) {
+  constructor(element: Element, delay: number = 0, endDelay: number = 0) {
     this.element = element as HTMLElement;
     this.delay = delay;
     this.endDelay = endDelay;
     this.tim = {
       delay: this.delay,
       endDelay: this.endDelay,
-      fill: fillBoth?"none":"none"
+      fill:"none"
     };
   }
   holdPrev(holdTime:number){
@@ -25,6 +25,9 @@ export default class Motion {
     this.animationKeyFrames.push({...this.animationKeyFrames[i]});
     this.deltaTime.push(holdTime);
     this.interpolations.push(esz.s.LINEAR);
+  }
+  setFill(fill:AnimationEffectTimingFillMode){
+      this.tim.fill = fill;
   }
   addKey(
     deltaTime: number,

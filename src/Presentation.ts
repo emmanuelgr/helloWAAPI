@@ -18,6 +18,7 @@ import Grid from "./geom/Grid";
 import Spacers from "./geom/Spacers";
 import Ring from "./animations/Ring";
 import Votis from "./animations/Votis";
+import Contact from "./animations/Contact";
 //
 export default function() {
   const m = new Model().get();
@@ -53,26 +54,17 @@ export default function() {
   motionBgClr.addKey(999, { backgroundColor:Colors.grey.W700} );
   motionBgClr.holdPrev(555);
   motionBgClr.setEas(esz.s.EASE_IN2);
-  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W600} );
-  motionBgClr.holdPrev(2000);
-  motionBgClr.setEas(esz.s.EASE_IN2);
-  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
-  motionBgClr.holdPrev(2500);
-  motionBgClr.setEas(esz.s.EASE_IN2);
-  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W900} );
-  motionBgClr.holdPrev(1000);
+  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W700} );
+  motionBgClr.holdPrev(6000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
-  motionBgClr.holdPrev(2000);
+  motionBgClr.holdPrev(999);
   motionBgClr.setEas(esz.s.EASE_IN2);
-  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W900} );
-  motionBgClr.holdPrev(4000);
+  motionBgClr.addKey(1111, { backgroundColor:Colors.grey.W900} );
+  motionBgClr.holdPrev(1500);
   // motionBgClr.setEas(esz.s.EASE_IN2);
-  // motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
-  // motionBgClr.holdPrev(4000);
-  // motionBgClr.setEas(esz.s.EASE_IN2);
-  // motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
-  // motionBgClr.holdPrev(8000);
+  // motionBgClr.addKey(999, { backgroundColor:Colors.red.W900} );
+  // motionBgClr.holdPrev(4400);
   
 
   const hellothere = HelloThere(999);
@@ -81,6 +73,7 @@ export default function() {
   const aSoftDev = AsoftwareDev(votis.activeDuration-100);
   const aGeek = AGeekByNature(aSoftDev.activeDuration-200);
   const byHeart = ByHeart(aGeek.activeDuration-800);
+  const contact = Contact(byHeart.activeDuration-800);
   //
   const text = new GroupEffect([
     hellothere,
@@ -89,6 +82,7 @@ export default function() {
     aSoftDev,
     aGeek,
     byHeart,
+    contact,
   ]);
 
   const cams = new SequenceEffect([
@@ -103,14 +97,13 @@ export default function() {
     text,
     // cams,
     motionBgClr.get(),
-    // ring
   ]);
 
   m.player = new Animation(gfx, document.timeline);
-  m.player.onfinish = () => m.player.play();
-  m.player.pause();
-  // m.player.play();
+  // m.player.onfinish = () => m.player.play();
   // m.player.playbackRate = 3;
   // m.player.reverse();
+  m.player.pause();
   Timeline();
+  m.player.play();
 }

@@ -1,5 +1,7 @@
 /* @import '/Users/emmanuel/Projects/websiteAnimated/node_modules/lato/font/lato-black/lato-black.woff2'; */
 @import './fonts/lato.css';
+@import './styles/ui.css';
+
 html {
   box-sizing: border-box;
 height: 100%;
@@ -103,7 +105,7 @@ body {
   width: 100vmin;
   height: 100vmin;
 }
-p{
+#world p{
   position: absolute;
   transform-style: preserve-3d;
   color: rgb(26, 21, 4);
@@ -197,32 +199,27 @@ font-family: 'LatoLatinWebHeavy';
 #ageek{
   font-size:44vmin;
   font-family:'LatoLatinWebHairline';
-  color:#fdd935;
+  color:#212121;
   z-index: 1;
 }
 
-#by{
-  font-size:4vmin;
-  font-family: 'LatoLatinWebMedium';
-  color:#fdd935;
-}
 #geek{
   position: absolute;
-  color:#212121;
-  font-size:110vmin;
+  color:#424242;
+  font-size:160vmin;
 font-family: 'LatoLatinWebBlack';
   letter-spacing: -2.5vmin;
   text-transform: capitalize;
 }
 
-#geekBg{
-  position: absolute;
-  background-color: #212121;
+#by{
+  font-size:4vmin;
+  font-family: 'LatoLatinWebMedium';
+  color:#212121;
 }
-
 #nature{
   position: absolute;
-  color:#fdd935;
+  color:#212121;
   font-size:7.5vmin;
   font-family: 'LatoLatinWebMedium';
   letter-spacing: 5.5vmin;
@@ -242,109 +239,56 @@ font-family: 'LatoLatinWebBlack';
   padding: 3vmin;
 }
 #creative{
-  position: relative;
+  position: absolute;
   font-size:10.5vmin;
   font-family: 'LatoLatinWebMedium';
-  letter-spacing: 1.5vmin;
+  letter-spacing: -10vmin;
   text-transform: uppercase;
 }
 
 #byheart{
-  position: relative;
-  color:#880e4f;
+  position: absolute;
   font-size:2.5vmin;
 font-family: 'LatoLatinWebHeavy';
   
 }
 #heart{
-  position: relative;
-  color: #880e4f;
+  position: absolute;
   font-size:5.5vmin;
 font-family: 'LatoLatinWebHeavy';
   letter-spacing: 9.5vmin;
   text-transform: uppercase;  
 }
 
-
-#beta {
+#contactSection{
   position: absolute;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  text-align: center;
-  position: fixed;
-  right: 30px;
-  top: 0;
-  width: 30px;
-}
-
-
-
-#timeline{
-  position: absolute;
+  transform-style: preserve-3d;
   transform-origin: 0 0;
-  transform: translate(0, 100vh) translate(0,-100%);
-  height: 3px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'LatoLatinWeb';
   background-color: #f9a825;
+  font-size:5.5vmin;
+  padding: 5vmin;
+  max-width: 75vmin;
 }
 
-#time{
-  position: absolute;
-  left: 30px;
-font-family: 'LatoLatinWebHeavy';
-  letter-spacing: 0.7rem;
-  font-size: 0.7rem;
-  bottom: 14px;
-}
-#playPause{
-  position: absolute;
-  bottom: 15px;
-  background-color: #252525;
-  width: 10px;
-  height: 10px;
-  left: 10px;
-}
-#playPause[pause]{
-  background-color: #ab1616;
-}
-#playPause:hover{
-  cursor:pointer; 
-}
+#contactSection *{
+  position: relative;
 
-
-#scrolltainer{
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  /* z-index: 9999; */
-  user-select: all;
-  pointer-events: all;
-  position: absolute;
 }
-#scrolltent{
-  transform: translate(100vw,0) translate(-100%, 0);
-  width:3px;
-  background-color: tomato;
-  /* background-image: url('./images/Spinners.png'); */
-  height:1000px ;
-
-  -webkit-overflow-scrolling: touch;
-  color: white;
-  background: linear-gradient(
-    to bottom,
-    #333,
-    #333 50%,
-    #999 50%,
-    #999
-  );
-  background-size: 100% 0px;
+#contactSection h2{
+  font-size:6vmin;
+  font-family: 'LatoLatinWebHeavy';
+  align-self: flex-start;
+  position: relative;
+  padding: 1vmin 0;
 }
-
-#ttt{
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  background-color: tomato;
+#contactSection p{
+  position: relative;
+  font-size:4vmin;
+  font-family: 'LatoLatinWebLight';
+  line-height: 8vmin;
 }
