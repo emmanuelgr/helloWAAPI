@@ -40,6 +40,8 @@
 #beta svg,
 #playPause svg{
     fill: #f9a825;
+    width: 100%;
+    height: 100%;
   }
   .svgWrapper{
     border-radius: 999px;
@@ -57,9 +59,7 @@
     margin-right: 5px;
   }
   #playPause .svgWrapper{
-    width: 30px;
     height: 100%;
-    margin-right: 5px;
 }
 #beta p{
   color: #424242;
@@ -67,10 +67,10 @@
 
 #playPause{
   position: absolute;
-  bottom: 5px;
+  bottom: 10px;
   left: 5px;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 #playPause[pause] svg{
   fill: #bdbdbd;
