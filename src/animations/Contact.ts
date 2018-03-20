@@ -18,18 +18,6 @@ paps.addKey(999, new Props().C().TX().RY(0).S().F().get());
 // paps.holdPrev(2000);
 paps.setFill('forwards');
 
-const h2 = new Motion(document.querySelector('#contactSection h2'), delay,666);
-h2.addKey(0, new Props().O(0).TZ().get());
-h2.addKey(333, new Props().O(1).TZ(0).get());
-// h2.holdPrev(2666);
-h2.setFill('forwards');
-
-const a = new Motion(document.querySelector('#contactSection a'), delay,666);
-a.addKey(0, new Props().O(0).TZ().get());
-a.addKey(333, new Props().O(1).TZ(0).get());
-// a.holdPrev(4666);
-a.setFill('forwards');
-
 
 const groupFX = new GroupEffect(
   Array.from(document.querySelectorAll('#contactSection  span'))
@@ -45,15 +33,11 @@ const groupFX = new GroupEffect(
 );
 
 console.log(paps.get().activeDuration);
-console.log(h2.get().activeDuration);
-console.log(a.get().activeDuration);
 console.log(groupFX.activeDuration);
 
 
 const g = new GroupEffect([
 paps.get(),
-h2.get(),
-a.get(),
 groupFX,
 ]);
 return g;

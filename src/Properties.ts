@@ -57,10 +57,17 @@ export default class Properties {
    * @param y default to 0
    * @param z default to 0
    */
-  R(x: number = 0, y: number = 0, z: number = 0) {
+  R(x: number = 0, y: number = 0, z: number = 0, unit:string='deg') {
     this._transforms +=
-      // `rotateZ( ${z}deg ) rotateY( ${y}deg ) rotateX( ${x}deg ) `;
-      `rotateX( ${x}deg ) rotateY( ${y}deg ) rotateZ( ${z}deg ) `;
+      // `rotateX( ${x}${unit} ) rotateY( ${y}${unit} ) rotateZ( ${z}${unit} ) `;
+      `rotateZ( ${x}${unit} ) rotateY( ${y}${unit} ) rotateX( ${z}${unit} ) `;
+    return this;
+  }
+  RV(x: number, y: number, z: number, value:number,unit:string='deg') {
+    this._transforms +=
+      // `rotateX( ${x}${unit} ) rotateY( ${y}${unit} ) rotateZ( ${z}${unit} ) `;
+      // `rotateZ( ${x}${unit} ) rotateY( ${y}${unit} ) rotateX( ${z}${unit} ) `;
+      `rotate3d( ${x},${y},${z},${value}${unit} ) `;
     return this;
   }
   /**

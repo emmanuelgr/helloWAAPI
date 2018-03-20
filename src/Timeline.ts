@@ -6,14 +6,11 @@ export default function() {
     location.reload();
   });
   const tmline: HTMLElement = document.querySelector("#timeline");
-  const playPause: HTMLElement = document.querySelector("#playPause");
   document.onmousedown = togglePlayback;
   function togglePlayback(e){
     if (m.player.playState == "running") {
       m.player.pause();
-      playPause.setAttribute("pause", "");
     } else {
-      playPause.removeAttribute("pause");
       m.player.play();
     }
   }

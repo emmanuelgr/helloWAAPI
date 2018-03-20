@@ -23,7 +23,7 @@ creative.addKey(0,  { color:Colors.pink.W500,   letterSpacing:'-6vmin',...new Pr
 creative.setEas(esz.s.EASE_OUT3);
 creative.addKey(333, { color:Colors.red.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
 creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(999, { color:Colors.lightBlue.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
+creative.addKey(999, { color:Colors.yellow.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
 creative.setEas(esz.s.EASE_IN_OUT);
 creative.addKey(999, { color:Colors.deepOrange.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
 creative.setEas(esz.s.EASE_IN_OUT);

@@ -19,6 +19,7 @@ import Spacers from "./geom/Spacers";
 import Ring from "./animations/Ring";
 import Votis from "./animations/Votis";
 import Contact from "./animations/Contact";
+import Hire from "./animations/Hire";
 //
 export default function() {
   const m = new Model().get();
@@ -73,7 +74,8 @@ export default function() {
   const aSoftDev = AsoftwareDev(votis.activeDuration-100);
   const aGeek = AGeekByNature(aSoftDev.activeDuration-200);
   const byHeart = ByHeart(aGeek.activeDuration-800);
-  const contact = Contact(byHeart.activeDuration-800);
+  const hire = Hire(byHeart.activeDuration-800);
+  const contact = Contact(hire.activeDuration-800);
   //
   const text = new GroupEffect([
     hellothere,
@@ -82,6 +84,7 @@ export default function() {
     aSoftDev,
     aGeek,
     byHeart,
+    hire,
     contact,
   ]);
 
@@ -97,6 +100,7 @@ export default function() {
     text,
     // cams,
     motionBgClr.get(),
+    // Hire(0)
   ]);
 
   m.player = new Animation(gfx, document.timeline);

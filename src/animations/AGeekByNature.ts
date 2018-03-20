@@ -29,17 +29,17 @@ const by = new Motion(document.querySelector('#by'), delay+2000);
 by.addKey(0, new Props().C().O(0).T(  2, 10, 0).S().F().get());
 by.setEas(esz.s.EASE_OUT);
 by.addKey(555, new Props().C().O(1).T( 2, 0, 0).S().F().get());
-by.holdPrev(555);
-by.setEas(esz.s.EASE_IN3);
-by.addKey(666, new Props().C().O(0).T(  2, 0, 0).S(0).F().get());
+by.holdPrev(888);
+by.setEas(esz.s.EASE_IN2);
+by.addKey(1222, new Props().C().O(0).T( 0, 0, 0).S(0).F().get());
 
 const nature = new Motion(document.querySelector('#nature'), delay+2000);
 nature.addKey(0, new Props().C().O(0).T(5, 30, 0).S().F().get());
 nature.setEas(esz.s.EASE_OUT);
 nature.addKey(555, new Props().C().O(1).T(5, 15, 0).S().F().get());
-nature.holdPrev(555);
-nature.setEas(esz.s.EASE_IN3);
-nature.addKey(666, new Props().C().O(0).T(5, 0, 0).S(0).F().get());
+nature.holdPrev(888);
+nature.setEas(esz.s.EASE_IN2);
+nature.addKey(1222, new Props().C().O(0).T(0, 0, 0).S(0).F().get());
 
 
 const g = new GroupEffect([

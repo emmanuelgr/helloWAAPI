@@ -1,101 +1,61 @@
-#emailme{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    padding: 5px;
-    text-transform: uppercase;
-    font-size: 8px;
-    font-family: 'LatoLatinWebMedium';
-    text-align: center;
-    pointer-events: all;
-    cursor: pointer;
-    color: #f9a825;
-    background-color: #2f2f2f;
-    text-decoration: none;
-    right: 10px;
-    top: 0;
-  }
-
-#beta {
-    left: 5px;
-    top: 5px;
-    position: absolute;
-    display: flex;
-    height: 30px;
-    width: auto;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    font-family: 'LatoLatinWebMedium';
-    text-align: center;
-    pointer-events: all;
-    cursor: pointer;
-    color: #f9a825;
-  }
-#emailme svg,
-#beta svg,
-#playPause svg{
-    fill: #f9a825;
-    width: 100%;
-    height: 100%;
-  }
-  .svgWrapper{
-    border-radius: 999px;
-    background-color: #424242;
-    padding: 5px;
-}
-#emailme .svgWrapper{
-    width: 30px;
-    height: auto;
-    margin-bottom: 5px;
-}
-#beta .svgWrapper{
-  width: 30px;
-    height: 100%;
-    margin-right: 5px;
-  }
-  #playPause .svgWrapper{
-    height: 100%;
-}
-#beta p{
-  color: #424242;
-}
-
-#playPause{
+#title {
   position: absolute;
-  bottom: 10px;
-  left: 5px;
-  width: 24px;
-  height: 24px;
+  font-size: 12px;
+  font-family: "LatoLatinWebLight";
+  pointer-events: all;
+  cursor: pointer;
+  color: #f9a825;
+  background-color: #2f2f2f;
+  padding: 5px;
 }
-#playPause[pause] svg{
-  fill: #bdbdbd;
 
+#emailme {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:15vmin;
+  padding: 1vmin;
+  text-transform: uppercase;
+  font-size: 3vmin;
+  font-family: "LatoLatinWebMedium";
+  text-align: center;
+  pointer-events: all;
+  cursor: pointer;
+  color: #f9a825;
+  background-color: #2f2f2f;
+  text-decoration: none;
 }
-
-#timeline{
+.svgWrapper {
+  width:10vmin;
+  height:10vmin;
+  border-radius: 999px;
+  background-color: #424242;
+  padding: 2vmin;
+  margin-bottom: 1vmin;
+  fill: #f9a825;
+}
+#timeline {
   position: absolute;
   transform-origin: 0 0;
-  transform: translate(0, 100vh) translate(0,-100%);
+  transform: translate(0, 100vh) translate(0, -100%);
   height: 3px;
   width: 100%;
   background-color: #f9a825;
 }
 
-#time{
+#time {
   position: absolute;
-  left: 40px;
-  font-family: 'LatoLatinWebHeavy';
+  left: 10px;
+  font-family: "LatoLatinWebHeavy";
   letter-spacing: 0.7rem;
   font-size: 0.7rem;
   bottom: 14px;
 }
 
-#scrolltainer{
+#scrolltainer {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -105,21 +65,15 @@
   pointer-events: all;
   position: absolute;
 }
-#scrolltent{
-  transform: translate(100vw,0) translate(-100%, 0);
-  width:3px;
+#scrolltent {
+  transform: translate(100vw, 0) translate(-100%, 0);
+  width: 3px;
   background-color: tomato;
   /* background-image: url('./images/Spinners.png'); */
-  height:1000px ;
+  height: 1000px;
 
   -webkit-overflow-scrolling: touch;
   color: white;
-  background: linear-gradient(
-    to bottom,
-    #333,
-    #333 50%,
-    #999 50%,
-    #999
-  );
+  background: linear-gradient(to bottom, #333, #333 50%, #999 50%, #999);
   background-size: 100% 0px;
 }
