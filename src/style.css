@@ -260,7 +260,7 @@ font-family: 'LatoLatinWebHeavy';
   text-transform: uppercase;  
 }
 
-#contactSection{
+#outro{
   position: absolute;
   transform-style: preserve-3d;
   transform-origin: 0 0;
@@ -270,27 +270,28 @@ font-family: 'LatoLatinWebHeavy';
   justify-content: center;
   font-family: 'LatoLatinWeb';
   background-color: #f9a825;
+  /* color: #f9a825; */
   font-size:5.5vmin;
-  padding: 5vmin;
-  max-width: 75vmin;
+  font-weight: 100;
+  font-family: 'LatoLatinWebLight';
+  line-height: 10vmin;
+  padding: 8vmin;
+  max-width: 90vmin;
 }
 
-#contactSection *{
+#outro *{
   position: relative;
 
 }
-#contactSection h2{
+#outro h2{
   font-size:6vmin;
   font-family: 'LatoLatinWebHeavy';
   align-self: flex-start;
   position: relative;
   padding: 1vmin 0;
 }
-#contactSection p{
+#outro p{
   position: relative;
-  font-size:4vmin;
-  font-family: 'LatoLatinWebLight';
-  line-height: 8vmin;
 }
 
 
@@ -346,5 +347,14 @@ font-family: 'LatoLatinWebHeavy';
   height: 22vmin;
   color: #f9a825;
   background-color: #000;
+  text-transform: uppercase;
+}
+
+p#scroll-up{
+  display: block;
+  position: absolute;
+  transform-origin: 0 0;
+  font-size: 5vmin;
+  color: #f9a825;
   text-transform: uppercase;
 }
