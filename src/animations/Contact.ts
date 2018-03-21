@@ -32,12 +32,19 @@ const groupFX = new GroupEffect(
   })
 );
 
-const scrollUp = new Motion( document.querySelector('#scroll-up'), delay+999);
+const mailme = new Motion( document.querySelector('#emailme'), delay+999);
+mailme.addKey(0, new Props().TY(28).S(0).F().C().get());
+mailme.setEas(esz.s.EASE_OUT4);
+mailme.addKey(999, new Props().TY(28).S(1).F().C().get());
+mailme.setFill('forwards');
+
+const scrollUp = new Motion( document.querySelector('#scroll-up'), delay+3000);
 // me.setFill('both');
-scrollUp.addKey(0, new Props().O(1).T(0,60,0).F().C().get());
+scrollUp.addKey(0, new Props().O(1).TX(50,'vw').TY(100,'vh').F().get());
 scrollUp.setEas(esz.s.EASE_OUT3);
-scrollUp.addKey(666, new Props().O(1).T(0,40,0).F().C().get());
+scrollUp.addKey(999, new Props().O(1).TX(50,'vw').TY(90,'vh').F().get());
 scrollUp.setFill('forwards');
+
 
 console.log(paps.get().activeDuration);
 console.log(groupFX.activeDuration);
@@ -46,6 +53,7 @@ console.log(groupFX.activeDuration);
 const g = new GroupEffect([
 paps.get(),
 groupFX,
+mailme.get(),
 scrollUp.get(),
 ]);
 return g;

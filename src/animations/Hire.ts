@@ -85,7 +85,7 @@ motionBg1.addKey(999, new Props().C().S(0.75).F().get());
 motionBg1.holdPrev(222);
 motionBg1.addKey(444, new Props().C().S(0).F().get());
 
-const ring = Ring(delay+500, 1, 128, '#000', '#2f2f2f');
+const ring = Ring(delay+500, 1, 256, '#000', Colors.grey.W800);
 
 const g = new GroupEffect([
   paps.get(),

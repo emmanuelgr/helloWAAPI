@@ -4,8 +4,8 @@ export default class Spinner {
   cnvs:HTMLCanvasElement;
   // cnvs:HTMLDivElement;
   colors = [
-    [Colors.red.W300, Colors.red.W500,Colors.red.W700,Colors.red.W900],
     [Colors.amber.W300, Colors.amber.W500,Colors.amber.W700,Colors.amber.W900],
+    [Colors.red.W300, Colors.red.W500,Colors.red.W700,Colors.red.W900],
     [Colors.pink.W300, Colors.pink.W500,Colors.pink.W700,Colors.pink.W900],
     [Colors.purple.W300, Colors.purple.W500,Colors.purple.W700,Colors.purple.W900],
   ];

@@ -59,12 +59,13 @@ export default function() {
   motionBgClr.holdPrev(6000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
-  motionBgClr.holdPrev(999);
+  motionBgClr.holdPrev(2700);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(1111, { backgroundColor:Colors.grey.W900} );
-  motionBgClr.holdPrev(1500);
-  // motionBgClr.setEas(esz.s.EASE_IN2);
-  // motionBgClr.addKey(999, { backgroundColor:Colors.red.W900} );
+  motionBgClr.holdPrev(1000);
+  motionBgClr.setEas(esz.s.EASE_IN2);
+  motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
+  motionBgClr.setFill('forwards');
   // motionBgClr.holdPrev(4400);
   
 
@@ -72,10 +73,10 @@ export default function() {
   const iam = Iam(hellothere.activeDuration-700);
   const votis = Votis(iam.activeDuration-200);
   const aSoftDev = AsoftwareDev(votis.activeDuration-100);
-  const aGeek = AGeekByNature(aSoftDev.activeDuration-200);
+  const aGeek = AGeekByNature(aSoftDev.activeDuration-100);
   const byHeart = ByHeart(aGeek.activeDuration-800);
   const hire = Hire(byHeart.activeDuration-800);
-  const contact = Contact(hire.activeDuration-800);
+  const contact = Contact(hire.activeDuration-490);
   //
   const text = new GroupEffect([
     hellothere,

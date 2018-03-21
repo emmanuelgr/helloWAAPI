@@ -6,14 +6,15 @@ export default function() {
     location.reload();
   });
   const tmline: HTMLElement = document.querySelector("#timeline");
-  document.onmousedown = togglePlayback;
-  function togglePlayback(e){
-    if (m.player.playState == "running") {
-      m.player.pause();
-    } else {
-      m.player.play();
-    }
-  }
+
+  // document.onmousedown = togglePlayback;
+  // function togglePlayback(e){
+  //   if (m.player.playState == "running") {
+  //     m.player.pause();
+  //   } else {
+  //     m.player.play();
+  //   }
+  // }
 
   const time: HTMLDivElement = document.querySelector("#time");
   const scrolltainer:HTMLDivElement = document.querySelector('#scrolltainer');

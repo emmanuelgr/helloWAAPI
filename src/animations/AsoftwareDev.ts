@@ -15,24 +15,24 @@ a.setEas(esz.s.EASE_OUT2);
 a.addKey(666, new Props().C().O().TY(-10).RX().F().get());
 a.holdPrev(444);
 a.setEas(esz.s.EASE_IN2);
-a.addKey(1600, new Props().C().O(0).TY(30).RX(-90).F().get());
+a.addKey(555, new Props().C().O(0).TY(30).RX(-90).F().get());
 
 const soft = new Motion(document.querySelector('#software'),delay+111);
 soft.addKey(0, new Props().C().O(0).TY(20).RX(-180).F().get());
 soft.setEas(esz.s.EASE_OUT2);
 soft.addKey(666, new Props().C().O().TY().RX().F().get());
-soft.holdPrev(444);
+soft.holdPrev(222);
 soft.setEas(esz.s.EASE_IN2);
-soft.addKey(1300, new Props().C().O(0).TY(40).RX(-90).F().get());
+soft.addKey(555, new Props().C().O(0).TY(40).RX(-90).F().get());
 
 
 const dev = new Motion( document.querySelector('#dev'), delay+222);
 dev.addKey(0, new Props().C().O(0).TY(30).RX(-180).F().get());
 dev.setEas(esz.s.EASE_OUT2);
 dev.addKey(666, new Props().C().O().TY(10).RX().F().get());
-dev.holdPrev(444);
+// dev.holdPrev(111);
 dev.setEas(esz.s.EASE_IN2);
-dev.addKey(1000, new Props().C().O(0).TY(50).RX(-90).F().get());
+dev.addKey(555, new Props().C().O(0).TY(50).RX(-90).F().get());
 
 
 const deDiv = document.createElement("div");
@@ -46,9 +46,9 @@ divMotion1.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
 divMotion1.addKey(1, new Props().C().TY(100).O().S(10).F().get());
 divMotion1.setEas(esz.s.EASE_OUT5);
 divMotion1.addKey(1111, new Props().C().TY(0).O().S(10).F().get());
-divMotion1.holdPrev(666);
+divMotion1.holdPrev(333);
 divMotion1.setEas(esz.s.EASE_IN3);
-divMotion1.addKey(999, new Props().C().TY(100).O().S(10).F().get());
+divMotion1.addKey(555, new Props().C().TY(100).O().S(10).F().get());
 
 const deDiv2 = document.createElement("div");
 deDiv2.id = 'aSoft2';
@@ -60,9 +60,9 @@ divMotion2.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
 divMotion2.addKey(1, new Props().C().TY(100).O().S(10).F().get());
 divMotion2.setEas(esz.s.EASE_OUT5);
 divMotion2.addKey(1111, new Props().C().TY(0).O().S(10).F().get());
-divMotion2.holdPrev(333);
+divMotion2.holdPrev(111);
 divMotion2.setEas(esz.s.EASE_IN3);
-divMotion2.addKey(999, new Props().C().TY(100).O().S(10).F().get());
+divMotion2.addKey(555, new Props().C().TY(100).O().S(10).F().get());
 
 const deDiv3 = document.createElement("div");
 deDiv3.id = 'aSoft3';
@@ -74,9 +74,9 @@ divMotion3.addKey(0, new Props().C().TY(100).O(0).S(10).F().get());
 divMotion3.addKey(1, new Props().C().TY(100).O(1).S(10).F().get());
 divMotion3.setEas(esz.s.EASE_OUT5);
 divMotion3.addKey(1111, new Props().C().TY(0).O(1).S(10).F().get());
-divMotion3.holdPrev(111);
+divMotion3.holdPrev(0);
 divMotion3.setEas(esz.s.EASE_IN3);
-divMotion3.addKey(999, new Props().C().TY(100).O(1).S(10).F().get());
+divMotion3.addKey(555, new Props().C().TY(100).O(1).S(10).F().get());
 
 
 const g = new GroupEffect([

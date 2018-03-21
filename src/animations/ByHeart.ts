@@ -18,24 +18,31 @@ export default function(delay:number=0){
     kfs.push(mtn.get());
   }
 
+const creativeGrp = new Motion(document.querySelector('#creative-group'), delay+2400);
+creativeGrp.addKey(0,  { color:Colors.pink.W500});
+creativeGrp.setEas(esz.s.EASE_OUT3);
+creativeGrp.addKey(1111, { color:Colors.red.W500});
+creativeGrp.setEas(esz.s.EASE_IN_OUT);
+creativeGrp.addKey(1111, { color:Colors.deepOrange.W500});
+creativeGrp.setEas(esz.s.EASE_IN_OUT);
+creativeGrp.addKey(1111, { color:Colors.red.W500});
+creativeGrp.setEas(esz.s.EASE_OUT3);
+creativeGrp.addKey(1111, { color:Colors.amber.W500});
+creativeGrp.holdPrev(1111);
+
 const creative = new Motion(document.querySelector('#creative'), delay+2400);
-creative.addKey(0,  { color:Colors.pink.W500,   letterSpacing:'-6vmin',...new Props().C().F().O(0).get()});
+creative.addKey(0,  {  letterSpacing:'-6vmin',...new Props().C().F().O(0).get()});
 creative.setEas(esz.s.EASE_OUT3);
-creative.addKey(333, { color:Colors.red.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
-creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(999, { color:Colors.yellow.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
-creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(999, { color:Colors.deepOrange.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
-creative.setEas(esz.s.EASE_IN_OUT);
-creative.addKey(999, { color:Colors.amber.W500,   letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
+creative.addKey(999, {  letterSpacing:'1.5vmin',...new Props().C().F().O(1).get()});
+creative.holdPrev(3500);
 creative.setEas(esz.s.EASE_OUT3);
-creative.addKey(999,  { color:Colors.pink.W500,   letterSpacing:'-6vmin',...new Props().C().F().O(0).get()});
+creative.addKey(1500,  {  letterSpacing:'-6vmin',...new Props().C().F().O(0).get()});
 
 const by = new Motion(document.querySelector('#byheart'),delay+ 2500);
 by.addKey(0, new Props().C().F().O(0).TY(6).get());
 by.setEas(esz.s.EASE_OUT3);
 by.addKey(666, new Props().C().F().O(1).TY(9).get());
-by.holdPrev(666);
+by.holdPrev(111);
 by.setEas(esz.s.EASE_IN_OUT);
 by.addKey(444, new Props().C().F().O(0).TY(9).get());
 
@@ -43,7 +50,7 @@ const heart = new Motion(document.querySelector('#heart'), delay+2600);
 heart.addKey(0, { ...new Props().C().F().O(0).TY(15).get()});
 heart.setEas(esz.s.EASE_OUT2);
 heart.addKey(666, { ...new Props().C().F().O(1).TY(18).get()});
-heart.holdPrev(666);
+heart.holdPrev(111);
 heart.setEas(esz.s.EASE_IN_OUT);
 heart.addKey(444, { ...new Props().C().F().O(0).TY(18).get()});
 
@@ -51,6 +58,7 @@ heart.addKey(444, { ...new Props().C().F().O(0).TY(18).get()});
 const g = new GroupEffect([
   new GroupEffect(kfs),
   creative.get(),
+  creativeGrp.get(),
   by.get(),
   heart.get(),
 ]);

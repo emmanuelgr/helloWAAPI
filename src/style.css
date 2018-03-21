@@ -2,16 +2,15 @@
 @import './fonts/lato.css';
 @import './styles/ui.css';
 
-html {
-  box-sizing: border-box;
-height: 100%;
-}
-*,
-*:before,
-*:after {
+*{
   box-sizing: inherit;
   padding: 0;
   margin: 0;
+}
+html {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
 }
 body {
   position: relative;
@@ -51,10 +50,6 @@ body {
   /*none*/
   /* transform:rotate3d( 0, 1, 0, 0); */
 }
-
-#world *{
-  visibility:hidden;
-}
 #fgs,
 #bgs{
   position: absolute;
@@ -82,6 +77,7 @@ body {
     transform-origin: 0 0;
 }
 .spinner{
+  visibility:hidden;
   position: absolute;
   transform-origin: 0 0;
   -ms-interpolation-mode: nearest-neighbor;   
@@ -94,6 +90,7 @@ body {
 
 /* My Shapes */
 .rect{
+  visibility:hidden;
   position: absolute;
   transform: scale(10);
   width: 10%;
@@ -102,6 +99,7 @@ body {
 }
 .ring,
 .circ{
+  visibility:hidden;
   width: 100vmin;
   height: 100vmin;
 }
@@ -118,6 +116,7 @@ span{
 }
 
 #hello{
+  visibility:hidden;
   position: absolute;
   color: #212121;
   font-size: 18vmin;
@@ -126,6 +125,7 @@ span{
 }
 
 #there{
+  visibility:hidden;
   position: absolute;
   color: #212121;
   font-size:18vmin;
@@ -137,6 +137,7 @@ span{
   transform-style: preserve-3d;
 }
 #iam{
+  visibility:hidden;
   position: absolute;
   background-color:#f9a825;
   font-size:7vmin;
@@ -146,6 +147,7 @@ span{
 }
 
 #eme{
+  visibility:hidden;
   position: absolute;
   color:#f9a825;
   font-size:9vmin;
@@ -159,6 +161,7 @@ font-family: 'LatoLatinWebHeavy';
   transform-origin: 0 0;
 }
 #eme > span{
+  visibility:hidden;
   position: relative;
   transform-origin: 0 0;
   padding:1vmin;
@@ -168,6 +171,7 @@ font-family: 'LatoLatinWebHeavy';
   transform-style: preserve-3d;
 }
 #votis span{
+  visibility:hidden;
   color:#f9a825;
   position: absolute;
   font-size: 5vmin;
@@ -176,6 +180,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #a{
+  visibility:hidden;
   position: absolute;
   font-size: 5vmin;
   font-family: 'LatoLatinWebMedium';
@@ -183,6 +188,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #software{
+  visibility:hidden;
   font-size:10vmin;
   font-family:'LatoLatinWebHairline';
   letter-spacing: 1.5vmin;
@@ -190,6 +196,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #dev{
+  visibility:hidden;
   font-size: 6vmin;
   font-family: 'LatoLatinWebHeavy';
   letter-spacing: 3vmin;
@@ -197,6 +204,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #ageek{
+  visibility:hidden;
   font-size:44vmin;
   font-family:'LatoLatinWebHairline';
   color:#212121;
@@ -204,6 +212,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #geek{
+  visibility:hidden;
   position: absolute;
   color:#424242;
   font-size:160vmin;
@@ -213,11 +222,13 @@ font-family: 'LatoLatinWebBlack';
 }
 
 #by{
+  visibility:hidden;
   font-size:4vmin;
   font-family: 'LatoLatinWebMedium';
   color:#212121;
 }
 #nature{
+  visibility:hidden;
   position: absolute;
   color:#212121;
   font-size:7.5vmin;
@@ -239,6 +250,7 @@ font-family: 'LatoLatinWebBlack';
   padding: 3vmin;
 }
 #creative{
+  visibility:hidden;
   position: absolute;
   font-size:10.5vmin;
   font-family: 'LatoLatinWebMedium';
@@ -247,12 +259,14 @@ font-family: 'LatoLatinWebBlack';
 }
 
 #byheart{
+  visibility:hidden;
   position: absolute;
   font-size:2.5vmin;
 font-family: 'LatoLatinWebHeavy';
   
 }
 #heart{
+  visibility:hidden;
   position: absolute;
   font-size:5.5vmin;
 font-family: 'LatoLatinWebHeavy';
@@ -261,6 +275,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #outro{
+  visibility:hidden;
   position: absolute;
   transform-style: preserve-3d;
   transform-origin: 0 0;
@@ -271,18 +286,19 @@ font-family: 'LatoLatinWebHeavy';
   font-family: 'LatoLatinWeb';
   background-color: #f9a825;
   /* color: #f9a825; */
-  font-size:5.5vmin;
+  font-size:13vmin;
   font-weight: 100;
   font-family: 'LatoLatinWebLight';
-  line-height: 10vmin;
-  padding: 8vmin;
+  line-height: 20vmin;
+  padding: 10vmin;
   max-width: 90vmin;
 }
 
 #outro *{
+  visibility:hidden;
   position: relative;
-
 }
+
 #outro h2{
   font-size:6vmin;
   font-family: 'LatoLatinWebHeavy';
@@ -308,6 +324,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #hi{
+  visibility:hidden;
   display: block;
   position: absolute;
   transform-style: preserve-3d;
@@ -322,6 +339,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #re{
+  visibility:hidden;
   display: block;
   position: absolute;
   transform-style: preserve-3d;
@@ -336,6 +354,7 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 #me{
+  visibility:hidden;
   display: block;
   position: absolute;
   transform-style: preserve-3d;
@@ -351,10 +370,31 @@ font-family: 'LatoLatinWebHeavy';
 }
 
 p#scroll-up{
+  visibility:hidden;
+  font-family: 'LatoLatinWebMedium';
   display: block;
   position: absolute;
   transform-origin: 0 0;
-  font-size: 5vmin;
+  font-size: 4vmin;
   color: #f9a825;
   text-transform: uppercase;
+  letter-spacing: 1vmin;
+}
+
+#emailme {
+  visibility:hidden;
+  position: absolute;
+  transform-origin: 0 0;
+  pointer-events: all;
+  cursor: pointer;
+  fill: #f9a825;
+  width:15vmin;
+  height:15vmin;
+  border-radius: 999px;
+  background-color: #2f2f2f;
+  padding: 4vmin;
+}
+#emailme * {
+  pointer-events: all;
+  cursor: pointer;
 }
