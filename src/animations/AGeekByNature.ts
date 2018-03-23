@@ -15,16 +15,30 @@ a.setEas(esz.s.EASE_IN_OUT);
 a.addKey(333, new Props().C().O(0).T(  0, 20, 0).F().get());
 
 
-const geek = new Motion(document.querySelector('#geek'),delay+ 1100);
-geek.addKey(0, new Props().C().O(1).TX(120).F().get());
-geek.setEas(esz.s.STEPS1);
-geek.addKey(555, new Props().C().O(1).TX(40).F().get());
-geek.setEas(esz.s.STEPS1);
-geek.addKey(555, new Props().C().O(1).TX(-40).F().get());
-geek.setEas(esz.s.STEPS1);
-geek.addKey(555, new Props().C().O(1).TX(-120).F().get());
-geek.holdPrev(555)
-geek.addKey(1, new Props().C().O(0).T().F().get());
+// const geek = new Motion(document.querySelector('#geek'),delay+ 1100);
+// geek.addKey(0, new Props().C().O(1).TX(120).F().get());
+// geek.setEas(esz.s.STEPS1);
+// geek.addKey(555, new Props().C().O(1).TX(40).F().get());
+// geek.setEas(esz.s.STEPS1);
+// geek.addKey(555, new Props().C().O(1).TX(-40).F().get());
+// geek.setEas(esz.s.STEPS1);
+// geek.addKey(555, new Props().C().O(1).TX(-120).F().get());
+// geek.holdPrev(555)
+// geek.addKey(1, new Props().C().O(0).T().F().get());
+
+const geekGroupFx = new GroupEffect(
+  Array.from(document.querySelectorAll('.geek'))
+  .map((el: HTMLElement, i) => {
+    const x = i * 12 - 15;
+    const emmanuelAnim = new Motion(el as HTMLElement,delay +  i * 160 + 1100);
+    emmanuelAnim.addKey(0, new Props().C().T(x-5,50,0).RZ(360).F(-50,-100).get());
+    emmanuelAnim.setEas(esz.s.EASE_OUT5);
+    emmanuelAnim.addKey( 666, new Props().C().T(x, 0,0).RZ(0).F().get() );
+    emmanuelAnim.setEas(esz.s.EASE_IN5);
+    emmanuelAnim.addKey( 666, new Props().C().T(x+5,50,0).RZ(-180).F().get() );
+    return emmanuelAnim.get();
+  })
+);
 
 const by = new Motion(document.querySelector('#by'), delay+3400);
 by.addKey(0, new Props().C().O(0).T(  0, 10, 0).S().F().get());
@@ -47,7 +61,8 @@ const parts = PartsS(delay+3000);
 
 const g = new GroupEffect([
   a.get(),
-  geek.get(),
+  // geek.get(),
+  geekGroupFx,
   by.get(),
   nature.get(),
   parts,
