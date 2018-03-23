@@ -57,6 +57,9 @@ function updateUIs(){
   currentTimeRatio = m.player.currentTime / m.player.effect.activeDuration;
   tmline.style.transform = `translate(0, 100vh) scaleX(${currentTimeRatio})  translate(0,-100%)`;
 }
+m.player.onfinish = () =>{
+  scrolltainer.scrollTo(0,scrolltainer.scrollHeight);
+}
   // scrolltainer.addEventListener('scroll', onSroll);
 
   // const plaeryerTotalAnimations = player.timeline.getAnimations().length;

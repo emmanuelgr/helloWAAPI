@@ -20,6 +20,7 @@ import Ring from "./animations/Ring";
 import Votis from "./animations/Votis";
 import Contact from "./animations/Contact";
 import Hire from "./animations/Hire";
+import PartsS from "./animations/PartsS";
 //
 export default function() {
   const m = new Model().get();
@@ -56,13 +57,13 @@ export default function() {
   motionBgClr.holdPrev(555);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W700} );
-  motionBgClr.holdPrev(6000);
+  motionBgClr.holdPrev(3000);
   motionBgClr.setEas(esz.s.EASE_IN2);
-  motionBgClr.addKey(999, { backgroundColor:Colors.yellow.W100} );
-  motionBgClr.holdPrev(2700);
+  motionBgClr.addKey(2222, { backgroundColor:Colors.yellow.W100} );
+  motionBgClr.holdPrev(7000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(1111, { backgroundColor:Colors.grey.W900} );
-  motionBgClr.holdPrev(1000);
+  motionBgClr.holdPrev(2000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(999, { backgroundColor:Colors.grey.W800} );
   motionBgClr.setFill('forwards');
@@ -75,7 +76,7 @@ export default function() {
   const aSoftDev = AsoftwareDev(votis.activeDuration-100);
   const aGeek = AGeekByNature(aSoftDev.activeDuration-100);
   const byHeart = ByHeart(aGeek.activeDuration-800);
-  const hire = Hire(byHeart.activeDuration-800);
+  const hire = Hire(byHeart.activeDuration-2000);
   const contact = Contact(hire.activeDuration-490);
   //
   const text = new GroupEffect([
@@ -88,14 +89,15 @@ export default function() {
     hire,
     contact,
   ]);
-
+  
   const cams = new SequenceEffect([
     CameraMotions().cam1.get(),
     CameraMotions().cam2.get(),
     CameraMotions().cam3.get()
   ]);
-
-  const ring = Ring(0,1, 256,'#fff',Colors.grey.W900);
+  
+  // const ring = Ring(0,1, 256,'#fff',Colors.grey.W900);
+  // const parts = PartsS();
 
   const gfx = new GroupEffect([
     text,

@@ -7,7 +7,7 @@
     "start": "parcel --no-hmr --no-cache --open -p 8080 ./src/index.html",
     "stealth": "parcel --no-hmr --no-cache  -p 8080 ./src/index.html",
     "prebuild": "rm -rf prod/www/*",
-    "build": "parcel build ./src/index.html --public-url ./ -d prod/www/ ",
+    "build": "parcel build ./src/index.html --no-minify  --public-url ./ --out-dir prod/www/ ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

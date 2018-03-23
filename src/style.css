@@ -398,3 +398,11 @@ p#scroll-up{
   pointer-events: all;
   cursor: pointer;
 }
+
+.petal {
+  visibility:hidden;
+  position: absolute;
+  transform-origin: 0 0;
+  /* mix-blend-mode: color-burn; */
+  border-radius: 9999px;
+}
