@@ -10,11 +10,9 @@ export default function(delay:number=0){
   for (let i = 0; i < 7; i++) {
     const mtn = new Motion(new Spinner(i, `spin${i}`, "#spinners", "spinner").get(), delay + 150*i);
     const s = 140;
-    mtn.addKey(0, new Props().C().S().RZ(180).O(0).F().get());
-    mtn.addKey(1, new Props().C().S((i+1)*s).RZ(180).O(1).F().get());
+    mtn.addKey(0, new Props().C().S((i+1)*s).RZ().O(1).F().get());
     mtn.setEas(esz.s.EASE_OUT5);
-    mtn.addKey(1711, new Props().C().S(0).RZ().O(1).F().get());
-    mtn.addKey(    1, new Props().C().S((i+1)*s).RZ().O(0).F().get());
+    mtn.addKey(1711, new Props().C().S(0).RZ(720).O(1).F().get());
     kfs.push(mtn.get());
   }
 
