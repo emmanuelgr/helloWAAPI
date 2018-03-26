@@ -1,80 +1,109 @@
 import Model from "./Model";
 
 export default function() {
-  const m = new Model().get();
-  document.addEventListener("dblclick", e => {
-    location.reload();
-  });
-  const tmline: HTMLElement = document.querySelector("#timeline");
-
-  // document.onmousedown = togglePlayback;
-  // function togglePlayback(e){
-  //   if (m.player.playState == "running") {
-  //     m.player.pause();
-  //   } else {
-  //     m.player.play();
-  //   }
-  // }
-
   const time: HTMLDivElement = document.querySelector("#time");
-  const scrolltainer:HTMLDivElement = document.querySelector('#scrolltainer');
-  let requestAnimationFrameID;
-  let currentTimeRatio=0;
-  let manuallySettingScroll = true;
-  function onTick(e) {
-    manuallySettingScroll = true;
-    // const c =  (scrolltainer.scrollHeight - scrolltainer.clientHeight) * currentTimeRatio;
-    // scrolltainer.scrollTop = c;
-    updateUIs();
-    manuallySettingScroll = false;
-    requestAnimationFrameID = requestAnimationFrame(onTick);
-  }
-  requestAnimationFrameID = requestAnimationFrame(onTick);
-  scrolltainer.onscroll = onSroll;
-  
-  
+  const scrolltainer: HTMLDivElement = document.querySelector("#scrolltainer");
+  const tmline: HTMLElement = document.querySelector("#timeline");
+  const m = new Model().get();
+  let requestAnimationFrameID = NaN;
+  let currentTimeRatio = 0;
   let timeoutID;
-  function onSroll (e) {
-    if(manuallySettingScroll) return;
-    // console.log(e);
-    // console.log('on scroll trigeered ');
-    // cancelAnimationFrame(requestAnimationFrameID);
-    // console.log(ssss.scrollTop + " " + ssss.scrollHeight + " " + ssss.clientHeight);
+  let isDown = false;
+  let lastScrollStamp = 0;
+  let lastDownlStamp = 0;
+  let wasPlaying;
+  //
+  scrolltainer.ondblclick = () => location.reload();
+  scrolltainer.onmousedown = handleDown;
+  scrolltainer.ontouchstart = handleDown;
+  scrolltainer.onmouseup = handlUp;
+  scrolltainer.ontouchend = handlUp;
+  scrolltainer.onscroll = onSroll;
+
+  function handleDown(e) {
+    lastDownlStamp = e.timeStamp;
+    isDown = true;
+    if (m.player.playState == "running") {
+      wasPlaying = true;
+      m.player.pause();
+      updateScrollbar();
+    } else {
+      wasPlaying = false;
+    }
+    // console.log("DOWN ", e.timeStamp);
+    // clearTimeout(timeoutID);
+  }
+  function handlUp(e) {
+    e.preventDefault();
+    isDown = false;
+    const d = e.timeStamp - lastDownlStamp;
+    console.log("delta ", e.timeStamp, " ", d);
+
+    // console.log("UP " );
+    if (d < 200) {
+      if(wasPlaying){
+        m.player.pause();
+      }else{
+        m.player.play();
+      }
+    }
+  }
+
+  function togglePlayback() {
     if (m.player.playState == "running") {
       m.player.pause();
-      clearTimeout(timeoutID);
-      timeoutID = setTimeout((e) => {
-        manuallySettingScroll = true;
-        m.player.play();
-      }, 100);
+      updateScrollbar();
+    } else {
+      m.player.play();
     }
-    m.player.currentTime = scrolltainer.scrollTop / (scrolltainer.scrollHeight - scrolltainer.clientHeight) * m.player.effect.activeDuration;
-    // requestAnimationFrameID = requestAnimationFrame(onTick);
+  }
+
+  function updateScrollbar() {
+    const c =
+      (scrolltainer.scrollHeight - scrolltainer.clientHeight) *
+      currentTimeRatio;
+    scrolltainer.scrollTop = c;
+  }
+
+  function onTick(e) {
+    updateUIs();
+    requestAnimationFrame(onTick);
+  }
+  requestAnimationFrame(onTick);
+
+  function onSroll(e) {
+    let d = e.timeStamp - lastScrollStamp;
+    // lastScrollStamp = e.timeStamp;
+    // console.log(d, isDown);
+
+    m.player.pause();
+    if (!requestAnimationFrameID) {
+      requestAnimationFrameID = requestAnimationFrame(() => {
+        requestAnimationFrameID = NaN;
+        //
+        m.player.currentTime =
+          scrolltainer.scrollTop /
+          (scrolltainer.scrollHeight - scrolltainer.clientHeight) *
+          m.player.effect.activeDuration;
+      });
+    }
+    // if (isDown) {
+    // } else {
+    //   console.log("wait...");
+    //   clearTimeout(timeoutID);
+    //   timeoutID = setTimeout(e => {
+    //     console.log("timer end play");
+    //     m.player.play();
+    //   }, 100);
+    // }
+  }
+
+  function updateUIs() {
+    time.textContent = Math.round(m.player.currentTime).toString();
+    currentTimeRatio = m.player.currentTime / m.player.effect.activeDuration;
+    tmline.style.transform = `translate(0, 100vh) scaleX(${currentTimeRatio})  translate(0,-100%)`;
+  }
+  m.player.onfinish = () => {
+    scrolltainer.scrollTo(0, scrolltainer.scrollHeight);
   };
-
-function updateUIs(){
-  time.textContent = Math.round(m.player.currentTime).toString();
-  currentTimeRatio = m.player.currentTime / m.player.effect.activeDuration;
-  tmline.style.transform = `translate(0, 100vh) scaleX(${currentTimeRatio})  translate(0,-100%)`;
-}
-m.player.onfinish = () =>{
-  scrolltainer.scrollTo(0,scrolltainer.scrollHeight);
-}
-  // scrolltainer.addEventListener('scroll', onSroll);
-
-  // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
-  // player.ready.then( ()=>requestAnimationFrame(onFrame));
-  // function onFrame(timestamp) {
-  // console.log( timestamp );
-  // console.log( '>', player.timeline.getAnimations()[0].);
-  // const remainingAnimations = plaeryerTotalAnimations - plaeryerTotalAnimations;
-  // switch( remainingAnimations )
-  // console.log( remainingAnimations);
-  // requestAnimationFrame(onFrame);
-  // }
-
-  // const p2 = new Animation(bg3.get(),document.timeline);
-  // p2.onfinish =  ()=>p2.reverse();
-  // p2.play();
-  //
 }

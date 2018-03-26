@@ -42,13 +42,13 @@ const emmanuelGroupFX = new GroupEffect(
     roseAnim.addKey(0,    new Props().RZ(i*-40).RX().S(0).F(333,333).C().get() );
     roseAnim.setEas(esz.s.EASE_IN_OUT);
     let rot= 90;
-    roseAnim.addKey(2222,    new Props().RZ(i*-40+rot).RX(70).S(i%2?-3:-2).F(50,50).C().get() );
-    roseAnim.holdPrev(444);
+    roseAnim.addKey(999,    new Props().RZ(i*-40+rot).RX(70).S(i%2?-3:-2).F(50,50).C().get() );
+    roseAnim.holdPrev(1111);
     roseAnim.setEas(esz.s.EASE_IN_OUT);
     rot+=90;
-    rot+=90;
-    roseAnim.addKey(2222,    new Props().RZ(i*-20+rot).RX(0).S(i%3?-1:1).F(-555,0).C().get() );
-    roseAnim.setEas(esz.s.EASE_IN_OUT);
+    // rot+=90;
+    roseAnim.addKey(1111,    new Props().RZ(i*-20+rot).RX(0).S(i%3?-1:1).F(-555,0).C().get() );
+    roseAnim.setEas(esz.s.EASE_IN4);
     // rot+=90;
     // rot+=90;
     // roseAnim.addKey( 3333, new Props().RZ(i-40 +rot).RX(0).S( (i%2?-1:1)).F(i*20, (petals.length-1)*20).C().get()  );

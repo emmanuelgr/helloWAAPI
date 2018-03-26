@@ -7,7 +7,6 @@ import off from "./Offsets";
 import Pool from "./Pool";
 import Props from "./Properties";
 import Anims from "./AnimationKeyframes";
-import CameraMotions from "./CameraMotions";
 import HelloThere from "./animations/HelloThere";
 import Iam from "./animations/Iam";
 import AsoftwareDev from "./animations/AsoftwareDev";
@@ -60,7 +59,7 @@ export default function() {
   motionBgClr.holdPrev(3000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(2222, { backgroundColor:Colors.yellow.W100} );
-  motionBgClr.holdPrev(7000);
+  motionBgClr.holdPrev(5000);
   motionBgClr.setEas(esz.s.EASE_IN2);
   motionBgClr.addKey(1111, { backgroundColor:Colors.grey.W900} );
   motionBgClr.holdPrev(2000);
@@ -90,18 +89,11 @@ export default function() {
     contact,
   ]);
   
-  const cams = new SequenceEffect([
-    CameraMotions().cam1.get(),
-    CameraMotions().cam2.get(),
-    CameraMotions().cam3.get()
-  ]);
-  
   // const ring = Ring(0,1, 256,'#fff',Colors.grey.W900);
   // const parts = PartsS();
 
   const gfx = new GroupEffect([
     text,
-    // cams,
     motionBgClr.get(),
     // Hire(0)
   ]);

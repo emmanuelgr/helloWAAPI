@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({4:[function(require,module,exports) {
+})({3:[function(require,module,exports) {
 module.exports = {
   "short_name": "Emmanuel",
   "name": "Emmanuel's Animated Intro ++",
@@ -86,4 +86,4 @@ module.exports = {
   "display": "standalone",
   "theme_color": "#ffd600"
 };
-},{}]},{},[4])
+},{}]},{},[3])

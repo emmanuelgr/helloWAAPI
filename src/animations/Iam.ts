@@ -20,6 +20,7 @@ iamPapa.setEas(esz.s.EASE_OUT4);
 iamPapa.addKey(1222, new Props().C().TX(-38).RY(-90).S(1).get());
 iamPapa.setEas(esz.s.EASE_IN3);
 iamPapa.addKey(666, new Props().C().TX().RY(-90).S(0).get());
+iamPapa.holdPrev(111);
 
 const iam = new Motion(document.querySelector('#iam'), delay+666);
 iam.addKey(0,    new Props().O(0).T().RY().RX().S(0).F().get());

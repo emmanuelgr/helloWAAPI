@@ -37,13 +37,14 @@
   user-select: all;
   pointer-events: all;
   position: absolute;
+  -webkit-overflow-scrolling: touch;
 }
 #scrolltent {
   transform: translate(100vw, 0) translate(-100%, 0);
   width: 3px;
   background-color: tomato;
   /* background-image: url('./images/Spinners.png'); */
-  height:300vh;
+  height:1000vh;
 
   -webkit-overflow-scrolling: touch;
   color: white;

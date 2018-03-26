@@ -31,11 +31,11 @@ const geekGroupFx = new GroupEffect(
   .map((el: HTMLElement, i) => {
     const x = i * 12 - 15;
     const emmanuelAnim = new Motion(el as HTMLElement,delay +  i * 160 + 1100);
-    emmanuelAnim.addKey(0, new Props().C().T(x-5,50,0).RZ(360).F(-50,-100).get());
+    emmanuelAnim.addKey(0, new Props().O(0).C().T(x-5,70,0).RZ(360).F(-50,-100).get());
     emmanuelAnim.setEas(esz.s.EASE_OUT5);
-    emmanuelAnim.addKey( 666, new Props().C().T(x, 0,0).RZ(0).F().get() );
+    emmanuelAnim.addKey( 666, new Props().O().C().T(x, 0,0).RZ(0).F().get() );
     emmanuelAnim.setEas(esz.s.EASE_IN5);
-    emmanuelAnim.addKey( 666, new Props().C().T(x+5,50,0).RZ(-180).F().get() );
+    emmanuelAnim.addKey( 666, new Props().O(0).C().T(x+5,70,0).RZ(-180).F().get() );
     return emmanuelAnim.get();
   })
 );
@@ -54,7 +54,7 @@ nature.setEas(esz.s.EASE_OUT);
 nature.addKey(555, new Props().C().O(1).T(5, 15, 0).S().F().get());
 nature.holdPrev(888);
 nature.setEas(esz.s.EASE_IN2);
-nature.addKey(3333, new Props().C().O(0).T(0, 0, 0).S(0).F().get());
+nature.addKey(1111, new Props().C().O(0).T(0, 0, 0).S(0).F().get());
 
 const parts = PartsS(delay+3000);
 
