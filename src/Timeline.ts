@@ -20,6 +20,7 @@ export default function() {
   scrolltainer.ontouchend = handlUp;
   scrolltainer.onscroll = onSroll;
 
+  
   function handleDown(e) {
     lastDownlStamp = e.timeStamp;
     isDown = true;
@@ -44,6 +45,9 @@ export default function() {
       if(wasPlaying){
         m.player.pause();
       }else{
+        if(m.player.currentTime == m.player.effect.activeDuration){
+          m.player.currentTime = 0;
+        }
         m.player.play();
       }
     }
@@ -104,6 +108,7 @@ export default function() {
     tmline.style.transform = `translate(0, 100vh) scaleX(${currentTimeRatio})  translate(0,-100%)`;
   }
   m.player.onfinish = () => {
+    wasPlaying = false;
     scrolltainer.scrollTo(0, scrolltainer.scrollHeight);
   };
 }
