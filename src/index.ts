@@ -27,13 +27,6 @@ function init() {
       console.log("loaded");
     }, 0);
   });
-  window.addEventListener(
-    "orientationchange",
-    function() {
-      this.document.location.reload();
-    },
-    false
-  );
   Presentation();
 }
 function spinWorld() {

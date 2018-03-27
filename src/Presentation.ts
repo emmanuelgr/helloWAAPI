@@ -75,7 +75,7 @@ export default function() {
   const aSoftDev = AsoftwareDev(votis.activeDuration-100);
   const aGeek = AGeekByNature(aSoftDev.activeDuration-100);
   const byHeart = ByHeart(aGeek.activeDuration-800);
-  const hire = Hire(byHeart.activeDuration-2000);
+  const hire = Hire(byHeart.activeDuration-2500);
   const contact = Contact(hire.activeDuration-490);
   //
   const text = new GroupEffect([

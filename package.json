@@ -8,6 +8,7 @@
     "stealth": "parcel --no-hmr --no-cache  -p 8080 ./src/index.html",
     "prebuild": "rm -rf prod/www/*",
     "build": "parcel build ./src/index.html --no-minify  --public-url ./ --out-dir prod/www/ ",
+    "deploy": "npm run build & cd ./prod & gcloud app deploy & cd .. ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

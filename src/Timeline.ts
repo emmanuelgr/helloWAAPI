@@ -19,7 +19,16 @@ export default function() {
   scrolltainer.onmouseup = handlUp;
   scrolltainer.ontouchend = handlUp;
   scrolltainer.onscroll = onSroll;
-
+  window.addEventListener(
+    "orientationchange",
+    function() {
+      m.player.pause();
+      updateScrollbar();
+      m.player.play();
+      // this.document.location.reload();
+    },
+    false
+  );
   
   function handleDown(e) {
     lastDownlStamp = e.timeStamp;

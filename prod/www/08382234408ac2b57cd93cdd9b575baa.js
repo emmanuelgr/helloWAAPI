@@ -155,7 +155,7 @@ var o = {
     po: { easing: s.EASE_IN4 }
 };
 exports.o = o;
-},{}],17:[function(require,module,exports) {
+},{}],16:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -564,7 +564,7 @@ var Motion = /** @class */function () {
     return Motion;
 }();
 exports["default"] = Motion;
-},{"./Ease":11}],35:[function(require,module,exports) {
+},{"./Ease":11}],34:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -857,45 +857,7 @@ var Properties = /** @class */function () {
     return Properties;
 }();
 exports["default"] = Properties;
-},{"./Model":13}],15:[function(require,module,exports) {
-"use strict";
-
-exports.__esModule = true;
-var esz = require("./Ease");
-var Model_1 = require("./Model");
-var Motion_1 = require("./Motion");
-var Properties_1 = require("./Properties");
-function default_1() {
-    var m = new Model_1["default"]().get();
-    console.log(m.world);
-    var cam1 = new Motion_1["default"](m.world, 0, 0, false);
-    cam1.addKey(0, new Properties_1["default"]().C().T(0, 0, 0).R(0, 0, 0).get());
-    cam1.setEas(esz.s.EASE_OUT);
-    cam1.addKey(300, new Properties_1["default"]().C().T(0, 10, 0).R(0, -15, 0).get());
-    cam1.setEas(esz.s.EASE_IN_OUT);
-    cam1.addKey(1000, new Properties_1["default"]().C().T(0, 10, 10).R(8, -20, 9).get());
-    cam1.setEas(esz.s.EASE_IN);
-    cam1.addKey(222, new Properties_1["default"]().C().T(0, 0, 0).R(0, 0, 0).get());
-    var cam2 = new Motion_1["default"](m.world, 0, 0, false);
-    cam2.addKey(0, new Properties_1["default"]().C().T(0, 0, 0).R(0, 0, 0).get());
-    cam2.setEas(esz.s.EASE_OUT);
-    cam2.addKey(300, new Properties_1["default"]().C().T(9, 0, 0).R(0, 10, -11).get());
-    cam2.setEas(esz.s.EASE_IN_OUT);
-    cam2.addKey(1500, new Properties_1["default"]().C().T(5, 0, 0).R(8, 5, -11).get());
-    cam2.setEas(esz.s.EASE_IN);
-    cam2.addKey(222, new Properties_1["default"]().C().T(0, 0, 0).R(0, 0, 0).get());
-    var cam3 = new Motion_1["default"](m.world, 0, 0, false);
-    cam3.addKey(0, new Properties_1["default"]().C().T(0, 0, -10).R(-30, 0, 0).get());
-    cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(666, new Properties_1["default"]().C().T(0, 0, 0).R(5, 0, 0).get());
-    cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(666, new Properties_1["default"]().C().T(0, 0, 0).R(-5, 0, 0).get());
-    cam3.setEas(esz.s.LINEAR);
-    cam3.addKey(999, new Properties_1["default"]().C().T(0, 0, -10).R(0, 0, 0).get());
-    return { cam1: cam1, cam2: cam2, cam3: cam3 };
-}
-exports["default"] = default_1;
-},{"./Ease":11,"./Model":13,"./Motion":14,"./Properties":35}],37:[function(require,module,exports) {
+},{"./Model":13}],36:[function(require,module,exports) {
 "use strict";
 // var svgNS = "http://www.w3.org/2000/svg";
 
@@ -924,7 +886,7 @@ function default_1(diameter, clr, parentSelector, className) {
     return c;
 }
 exports["default"] = default_1;
-},{}],19:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -977,7 +939,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13,"../geom/Circle":37}],38:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13,"../geom/Circle":36}],37:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1015,7 +977,7 @@ function default_1(delay, scale, size, clr1, bgClr) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../geom/Circle":37}],18:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../geom/Circle":36}],18:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1040,6 +1002,7 @@ function default_1(delay) {
     iamPapa.addKey(1222, new Properties_1["default"]().C().TX(-38).RY(-90).S(1).get());
     iamPapa.setEas(esz.s.EASE_IN3);
     iamPapa.addKey(666, new Properties_1["default"]().C().TX().RY(-90).S(0).get());
+    iamPapa.holdPrev(111);
     var iam = new Motion_1["default"](document.querySelector('#iam'), delay + 666);
     iam.addKey(0, new Properties_1["default"]().O(0).T().RY().RX().S(0).F().get());
     iam.setEas(esz.s.EASE_OUT4);
@@ -1082,7 +1045,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13,"../geom/Circle":37,"./Ring":38}],21:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13,"../geom/Circle":36,"./Ring":37}],19:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1160,7 +1123,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13}],39:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13}],38:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1195,13 +1158,13 @@ function default_1(delay) {
         roseAnim.addKey(0, new Properties_1["default"]().RZ(i * -40).RX().S(0).F(333, 333).C().get());
         roseAnim.setEas(esz.s.EASE_IN_OUT);
         var rot = 90;
-        roseAnim.addKey(2222, new Properties_1["default"]().RZ(i * -40 + rot).RX(70).S(i % 2 ? -3 : -2).F(50, 50).C().get());
-        roseAnim.holdPrev(444);
+        roseAnim.addKey(999, new Properties_1["default"]().RZ(i * -40 + rot).RX(70).S(i % 2 ? -3 : -2).F(50, 50).C().get());
+        roseAnim.holdPrev(1111);
         roseAnim.setEas(esz.s.EASE_IN_OUT);
         rot += 90;
-        rot += 90;
-        roseAnim.addKey(2222, new Properties_1["default"]().RZ(i * -20 + rot).RX(0).S(i % 3 ? -1 : 1).F(-555, 0).C().get());
-        roseAnim.setEas(esz.s.EASE_IN_OUT);
+        // rot+=90;
+        roseAnim.addKey(1111, new Properties_1["default"]().RZ(i * -20 + rot).RX(0).S(i % 3 ? -1 : 1).F(-555, 0).C().get());
+        roseAnim.setEas(esz.s.EASE_IN4);
         // rot+=90;
         // rot+=90;
         // roseAnim.addKey( 3333, new Props().RZ(i-40 +rot).RX(0).S( (i%2?-1:1)).F(i*20, (petals.length-1)*20).C().get()  );
@@ -1215,7 +1178,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13}],20:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13}],20:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1247,11 +1210,11 @@ function default_1(delay) {
     var geekGroupFx = new GroupEffect(Array.from(document.querySelectorAll('.geek')).map(function (el, i) {
         var x = i * 12 - 15;
         var emmanuelAnim = new Motion_1["default"](el, delay + i * 160 + 1100);
-        emmanuelAnim.addKey(0, new Properties_1["default"]().C().T(x - 5, 50, 0).RZ(360).F(-50, -100).get());
+        emmanuelAnim.addKey(0, new Properties_1["default"]().O(0).C().T(x - 5, 70, 0).RZ(360).F(-50, -100).get());
         emmanuelAnim.setEas(esz.s.EASE_OUT5);
-        emmanuelAnim.addKey(666, new Properties_1["default"]().C().T(x, 0, 0).RZ(0).F().get());
+        emmanuelAnim.addKey(666, new Properties_1["default"]().O().C().T(x, 0, 0).RZ(0).F().get());
         emmanuelAnim.setEas(esz.s.EASE_IN5);
-        emmanuelAnim.addKey(666, new Properties_1["default"]().C().T(x + 5, 50, 0).RZ(-180).F().get());
+        emmanuelAnim.addKey(666, new Properties_1["default"]().O(0).C().T(x + 5, 70, 0).RZ(-180).F().get());
         return emmanuelAnim.get();
     }));
     var by = new Motion_1["default"](document.querySelector('#by'), delay + 3400);
@@ -1267,7 +1230,7 @@ function default_1(delay) {
     nature.addKey(555, new Properties_1["default"]().C().O(1).T(5, 15, 0).S().F().get());
     nature.holdPrev(888);
     nature.setEas(esz.s.EASE_IN2);
-    nature.addKey(3333, new Properties_1["default"]().C().O(0).T(0, 0, 0).S(0).F().get());
+    nature.addKey(1111, new Properties_1["default"]().C().O(0).T(0, 0, 0).S(0).F().get());
     var parts = PartsS_1["default"](delay + 3000);
     var g = new GroupEffect([a.get(),
     // geek.get(),
@@ -1275,7 +1238,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"./PartsS":39}],36:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"./PartsS":38}],35:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1315,7 +1278,7 @@ var Spinner = /** @class */function () {
     return Spinner;
 }();
 exports["default"] = Spinner;
-},{"./Colors":17}],23:[function(require,module,exports) {
+},{"./Colors":16}],21:[function(require,module,exports) {
 "use strict";
 
 var __assign = this && this.__assign || Object.assign || function (t) {
@@ -1378,82 +1341,116 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Ease":11,"../Colors":17,"../Properties":35,"../Spinner":36}],16:[function(require,module,exports) {
+},{"../Motion":14,"../Ease":11,"../Colors":16,"../Properties":34,"../Spinner":35}],15:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
 var Model_1 = require("./Model");
 function default_1() {
-    var m = new Model_1["default"]().get();
-    document.addEventListener("dblclick", function (e) {
-        location.reload();
-    });
-    var tmline = document.querySelector("#timeline");
-    // document.onmousedown = togglePlayback;
-    // function togglePlayback(e){
-    //   if (m.player.playState == "running") {
-    //     m.player.pause();
-    //   } else {
-    //     m.player.play();
-    //   }
-    // }
     var time = document.querySelector("#time");
-    var scrolltainer = document.querySelector('#scrolltainer');
-    var requestAnimationFrameID;
+    var scrolltainer = document.querySelector("#scrolltainer");
+    var tmline = document.querySelector("#timeline");
+    var m = new Model_1["default"]().get();
+    var requestAnimationFrameID = NaN;
     var currentTimeRatio = 0;
-    var manuallySettingScroll = true;
-    function onTick(e) {
-        manuallySettingScroll = true;
-        // const c =  (scrolltainer.scrollHeight - scrolltainer.clientHeight) * currentTimeRatio;
-        // scrolltainer.scrollTop = c;
-        updateUIs();
-        manuallySettingScroll = false;
-        requestAnimationFrameID = requestAnimationFrame(onTick);
-    }
-    requestAnimationFrameID = requestAnimationFrame(onTick);
-    scrolltainer.onscroll = onSroll;
     var timeoutID;
-    function onSroll(e) {
-        if (manuallySettingScroll) return;
-        // console.log(e);
-        // console.log('on scroll trigeered ');
-        // cancelAnimationFrame(requestAnimationFrameID);
-        // console.log(ssss.scrollTop + " " + ssss.scrollHeight + " " + ssss.clientHeight);
+    var isDown = false;
+    var lastScrollStamp = 0;
+    var lastDownlStamp = 0;
+    var wasPlaying;
+    //
+    scrolltainer.ondblclick = function () {
+        return location.reload();
+    };
+    scrolltainer.onmousedown = handleDown;
+    scrolltainer.ontouchstart = handleDown;
+    scrolltainer.onmouseup = handlUp;
+    scrolltainer.ontouchend = handlUp;
+    scrolltainer.onscroll = onSroll;
+    window.addEventListener("orientationchange", function () {
+        m.player.pause();
+        updateScrollbar();
+        m.player.play();
+        // this.document.location.reload();
+    }, false);
+    function handleDown(e) {
+        lastDownlStamp = e.timeStamp;
+        isDown = true;
+        if (m.player.playState == "running") {
+            wasPlaying = true;
+            m.player.pause();
+            updateScrollbar();
+        } else {
+            wasPlaying = false;
+        }
+        // console.log("DOWN ", e.timeStamp);
+        // clearTimeout(timeoutID);
+    }
+    function handlUp(e) {
+        e.preventDefault();
+        isDown = false;
+        var d = e.timeStamp - lastDownlStamp;
+        console.log("delta ", e.timeStamp, " ", d);
+        // console.log("UP " );
+        if (d < 200) {
+            if (wasPlaying) {
+                m.player.pause();
+            } else {
+                if (m.player.currentTime == m.player.effect.activeDuration) {
+                    m.player.currentTime = 0;
+                }
+                m.player.play();
+            }
+        }
+    }
+    function togglePlayback() {
         if (m.player.playState == "running") {
             m.player.pause();
-            clearTimeout(timeoutID);
-            timeoutID = setTimeout(function (e) {
-                manuallySettingScroll = true;
-                m.player.play();
-            }, 100);
+            updateScrollbar();
+        } else {
+            m.player.play();
         }
-        m.player.currentTime = scrolltainer.scrollTop / (scrolltainer.scrollHeight - scrolltainer.clientHeight) * m.player.effect.activeDuration;
-        // requestAnimationFrameID = requestAnimationFrame(onTick);
     }
-    ;
+    function updateScrollbar() {
+        var c = (scrolltainer.scrollHeight - scrolltainer.clientHeight) * currentTimeRatio;
+        scrolltainer.scrollTop = c;
+    }
+    function onTick(e) {
+        updateUIs();
+        requestAnimationFrame(onTick);
+    }
+    requestAnimationFrame(onTick);
+    function onSroll(e) {
+        var d = e.timeStamp - lastScrollStamp;
+        // lastScrollStamp = e.timeStamp;
+        // console.log(d, isDown);
+        m.player.pause();
+        if (!requestAnimationFrameID) {
+            requestAnimationFrameID = requestAnimationFrame(function () {
+                requestAnimationFrameID = NaN;
+                //
+                m.player.currentTime = scrolltainer.scrollTop / (scrolltainer.scrollHeight - scrolltainer.clientHeight) * m.player.effect.activeDuration;
+            });
+        }
+        // if (isDown) {
+        // } else {
+        //   console.log("wait...");
+        //   clearTimeout(timeoutID);
+        //   timeoutID = setTimeout(e => {
+        //     console.log("timer end play");
+        //     m.player.play();
+        //   }, 100);
+        // }
+    }
     function updateUIs() {
         time.textContent = Math.round(m.player.currentTime).toString();
         currentTimeRatio = m.player.currentTime / m.player.effect.activeDuration;
         tmline.style.transform = "translate(0, 100vh) scaleX(" + currentTimeRatio + ")  translate(0,-100%)";
     }
     m.player.onfinish = function () {
+        wasPlaying = false;
         scrolltainer.scrollTo(0, scrolltainer.scrollHeight);
     };
-    // scrolltainer.addEventListener('scroll', onSroll);
-    // const plaeryerTotalAnimations = player.timeline.getAnimations().length;
-    // player.ready.then( ()=>requestAnimationFrame(onFrame));
-    // function onFrame(timestamp) {
-    // console.log( timestamp );
-    // console.log( '>', player.timeline.getAnimations()[0].);
-    // const remainingAnimations = plaeryerTotalAnimations - plaeryerTotalAnimations;
-    // switch( remainingAnimations )
-    // console.log( remainingAnimations);
-    // requestAnimationFrame(onFrame);
-    // }
-    // const p2 = new Animation(bg3.get(),document.timeline);
-    // p2.onfinish =  ()=>p2.reverse();
-    // p2.play();
-    //
 }
 exports["default"] = default_1;
 },{"./Model":13}],22:[function(require,module,exports) {
@@ -1509,7 +1506,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13,"../geom/Circle":37}],24:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13,"../geom/Circle":36}],23:[function(require,module,exports) {
 "use strict";
 
 var __assign = this && this.__assign || Object.assign || function (t) {
@@ -1563,7 +1560,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Model":13}],40:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Model":13}],39:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1582,7 +1579,7 @@ function default_1() {
     return div;
 }
 exports["default"] = default_1;
-},{}],25:[function(require,module,exports) {
+},{}],24:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1673,7 +1670,7 @@ function default_1(delay) {
     return g;
 }
 exports["default"] = default_1;
-},{"../Motion":14,"../Properties":35,"../Ease":11,"../Colors":17,"../Model":13,"../geom/Circle":37,"./Ring":38,"../geom/Grid":40}],12:[function(require,module,exports) {
+},{"../Motion":14,"../Properties":34,"../Ease":11,"../Colors":16,"../Model":13,"../geom/Circle":36,"./Ring":37,"../geom/Grid":39}],12:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1681,7 +1678,6 @@ var Colors_1 = require("./Colors");
 var esz = require("./Ease");
 var Model_1 = require("./Model");
 var Motion_1 = require("./Motion");
-var CameraMotions_1 = require("./CameraMotions");
 var HelloThere_1 = require("./animations/HelloThere");
 var Iam_1 = require("./animations/Iam");
 var AsoftwareDev_1 = require("./animations/AsoftwareDev");
@@ -1728,7 +1724,7 @@ function default_1() {
     motionBgClr.holdPrev(3000);
     motionBgClr.setEas(esz.s.EASE_IN2);
     motionBgClr.addKey(2222, { backgroundColor: Colors_1["default"].yellow.W100 });
-    motionBgClr.holdPrev(7000);
+    motionBgClr.holdPrev(5000);
     motionBgClr.setEas(esz.s.EASE_IN2);
     motionBgClr.addKey(1111, { backgroundColor: Colors_1["default"].grey.W900 });
     motionBgClr.holdPrev(2000);
@@ -1742,16 +1738,13 @@ function default_1() {
     var aSoftDev = AsoftwareDev_1["default"](votis.activeDuration - 100);
     var aGeek = AGeekByNature_1["default"](aSoftDev.activeDuration - 100);
     var byHeart = ByHeart_1["default"](aGeek.activeDuration - 800);
-    var hire = Hire_1["default"](byHeart.activeDuration - 2000);
+    var hire = Hire_1["default"](byHeart.activeDuration - 2500);
     var contact = Contact_1["default"](hire.activeDuration - 490);
     //
     var text = new GroupEffect([hellothere, iam, votis, aSoftDev, aGeek, byHeart, hire, contact]);
-    var cams = new SequenceEffect([CameraMotions_1["default"]().cam1.get(), CameraMotions_1["default"]().cam2.get(), CameraMotions_1["default"]().cam3.get()]);
     // const ring = Ring(0,1, 256,'#fff',Colors.grey.W900);
     // const parts = PartsS();
-    var gfx = new GroupEffect([text,
-    // cams,
-    motionBgClr.get()]);
+    var gfx = new GroupEffect([text, motionBgClr.get()]);
     m.player = new Animation(gfx, document.timeline);
     // m.player.onfinish = () => m.player.play();
     // m.player.playbackRate = 3;
@@ -1761,7 +1754,7 @@ function default_1() {
     m.player.play();
 }
 exports["default"] = default_1;
-},{"./Colors":17,"./Ease":11,"./Model":13,"./Motion":14,"./CameraMotions":15,"./animations/HelloThere":19,"./animations/Iam":18,"./animations/AsoftwareDev":21,"./animations/AGeekByNature":20,"./animations/ByHeart":23,"./Timeline":16,"./animations/Votis":22,"./animations/Contact":24,"./animations/Hire":25}],4:[function(require,module,exports) {
+},{"./Colors":16,"./Ease":11,"./Model":13,"./Motion":14,"./animations/HelloThere":17,"./animations/Iam":18,"./animations/AsoftwareDev":19,"./animations/AGeekByNature":20,"./animations/ByHeart":21,"./Timeline":15,"./animations/Votis":22,"./animations/Contact":23,"./animations/Hire":24}],4:[function(require,module,exports) {
 "use strict";
 
 exports.__esModule = true;
@@ -1790,9 +1783,6 @@ function init() {
             console.log("loaded");
         }, 0);
     });
-    window.addEventListener("orientationchange", function () {
-        this.document.location.reload();
-    }, false);
     Presentation_1["default"]();
 }
 function spinWorld() {
