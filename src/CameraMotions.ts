@@ -7,7 +7,7 @@ export default function(){
     const m = new Model().get();
     console.log( m.world);
 
-    const cam1 = new Motion(m.world, 0, 0, false);
+    const cam1 = new Motion(m.world, 0, 0);
     cam1.addKey(0, new Props().C().T(0, 0, 0).R(0, 0, 0).get());
     cam1.setEas(esz.s.EASE_OUT);
     cam1.addKey(300, new Props().C().T(0, 10, 0).R(0, -15, 0).get());
@@ -16,7 +16,7 @@ export default function(){
     cam1.setEas(esz.s.EASE_IN);
     cam1.addKey(222, new Props().C().T(0, 0, 0).R(0, 0, 0).get());
 
-    const cam2 = new Motion(m.world, 0, 0, false);
+    const cam2 = new Motion(m.world, 0, 0);
     cam2.addKey(0, new Props().C().T(0, 0, 0).R(0, 0, 0).get());
     cam2.setEas(esz.s.EASE_OUT);
     cam2.addKey(300, new Props().C().T(9, 0, 0).R(0, 10, -11).get());
@@ -25,7 +25,7 @@ export default function(){
     cam2.setEas(esz.s.EASE_IN);
     cam2.addKey(222, new Props().C().T(0, 0, 0).R(0, 0, 0).get());
 
-    const cam3 = new Motion(m.world, 0, 0, false);
+    const cam3 = new Motion(m.world, 0, 0);
     cam3.addKey(0, new Props().C().T(0, 0, -10).R(      -30, 0, 0  ).get());
     cam3.setEas(esz.s.LINEAR);
     cam3.addKey(666, new Props().C().T(0, 0, 0).R(   5, 0, 0   ).get());
